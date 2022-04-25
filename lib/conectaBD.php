@@ -13,7 +13,7 @@ global $username;
 global $password;
 global $database;
 
-$servername = "localhost:3307";
+$servername = "localhost:3306";
 $username = "user2";
 $password = "pass";
 $database = "punch_the_clock";
