@@ -10,97 +10,55 @@
 <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/Style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
 
 
 <body>
-    <nav class="navbar shadow navbar-dark bg-success fixed-top">
-        <div class="container-fluid">
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-                aria-controls="offcanvasExample">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <a class="navbar-brand" href="http://localhost/punch_the_clock/#">MENU</a>
-
-        </div>
-    </nav>
-
-    <div class="offcanvas offcanvas-start d-flex flex-column flex-shrink-0 p-3 bg-light" tabindex="-1"
-        id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 280px;">
-
-        <a href="http://localhost/punch_the_clock/#"
-            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-			<img src="../../imagens/Logo_ptc.jpeg" alt="" width="50" height="50" class="rounded-circle me-4">
-        </a>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    Funcionario
+<header>
+        <div class = "container" id= "nav-container">
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <a href="#" class="navbar-brand">
+                    <img id="logo" src=".../Imagens/Logo_ptc.jpeg" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <button><a href="http://localhost/punch_the_clock/funcionarioListar.php">Gerenciar
-                                Funcionarios</a> </button> <br>
-                        <button><a href="http://localhost/punch_the_clock/funcionarioListar.php">Cadastrar
-                                Funcionario</a></button>
-                    </div>
+                <div class="collapse navbar-collapse justfiy-content-end" id="navbar-links">
+                    <div class="navbar-nav">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <a href="http://localhost/punch_the_clock/lib/" class="nav-item nav-link" id="home-menu"><i class="fa fa-fw fa-home" style="padding-right: 25px;"></i>Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-users"style="padding-right: 10px;"></i>Funcionarios</a>
+                                <ul class="dropdown-menu">
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioIncluir.php">Cadastrar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-users"style="padding-right: 10px;"></i>Ponto</a>
+                                <ul class="dropdown-menu">
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioIncluir.php">Cadastrar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-briefcase"style="padding-right: 10px;"></i>Cargos</a>
+                                <ul class="dropdown-menu">
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioListar.php">Cadastrar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>   
                 </div>
-            </li>
-
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">
-                Cargo
-            </button>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <button><a href="http://localhost/punch_the_clock/funcionarioListar.php">Gerenciar Cargo</a>
-                    </button> <br>
-                    <button><a href="http://localhost/punch_the_clock/funcionarioListar.php">Cadastrar
-                            Cargo</a></button>
-                </div>
-            </div>
-            <li>
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    Ponto
-                </button>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <button><a href="http://localhost/punch_the_clock/funcionarioListar.php">Relatorio Ponto</a>
-                        </button> <br>
-                        <button><a href="http://localhost/punch_the_clock/funcionarioListar.php">Bater
-                                Ponto</a></button>
-                    </div>
-                </div>
-            </li>
-
-        </ul>
-        <hr>
-        <div class="dropdown">
-            <a href="http://localhost/punch_the_clock/#"
-                class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>mdo</strong>
-            </a>
-            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                <li><a class="dropdown-item" href="#">New project...</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
+            </nav> 
         </div>
+    </header>
 
-    </div>
 
 
 
@@ -160,19 +118,10 @@
         </div>
 
 
-        <footer class="w3-panel w3-padding-32 w3-card-4 w3-light-grey w3-center w3-opacity">
-            <p>
-            <nav>
-                <a class="w3-button w3-theme w3-hover-white"
-                    onclick="document.getElementById('id01').style.display='block'">Sobre</a>
-            </nav>
-            </p>
-        </footer>
+        
 
         <!-- FIM PRINCIPAL -->
     </div>
-    <!-- Inclui RODAPE.PHP  -->
-    <?php require 'rodape.php';?>
 </body>
 
 </html>
