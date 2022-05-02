@@ -12,6 +12,9 @@ global $servername ;
 global $username;
 global $password;
 global $database;
+global $logado;
+
+$logado = false;
 
 $servername = "localhost:3306";
 $username = "user2";

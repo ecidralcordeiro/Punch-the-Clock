@@ -18,8 +18,8 @@
 <header>
         <div class = "container" id= "nav-container">
             <nav class="navbar navbar-expand-lg fixed-top">
-                <a href="#" class="navbar-brand">
-                    <img id="logo" src=".../imagens/Logo_ptc.jpeg" alt="">
+                <a href="http://localhost/punch_the_clock/lib/login/login.php" class="navbar-brand">
+                    <img id="logo" src="../imagens/Logo_ptc.jpeg" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
                     <div class="navbar-nav">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <a href="http://localhost/punch_the_clock/lib/"class="nav-item nav-link" id="home-menu"><i class="fa fa-fw fa-home" style="padding-right: 25px;"></i>Home</a>
+                                <a class="nav-item nav-link" id="home-menu"><i class="fa fa-fw fa-home" style="padding-right: 25px;"></i>Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-users"style="padding-right: 10px;"></i>Funcionarios</a>
@@ -41,6 +41,7 @@
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-users"style="padding-right: 10px;"></i>Ponto</a>
                                 <ul class="dropdown-menu">
                                     <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioIncluir.php">Cadastrar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/ponto/registrarPonto.php">Registrar</a></li>
                                     <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
                                 </ul>
                             </li>
@@ -60,9 +61,7 @@
 
 
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-	</script>
+
 <?php require '../conectaBD.php'; ?>
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
@@ -86,7 +85,7 @@
 	<!-- Acesso ao BD-->
 	<?php
     $email  = $_POST['email'];
-    $md5Senha = md5($_POST['senha']);
+    $md5Senha = md5("sdv-".$_POST['senha']);
 
     // Cria conexão
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -101,12 +100,12 @@
 		mysqli_query($conn,'SET character_set_results=utf8');
 
     // Faz Select na Base de Dados
-
     $sql = mysql_query("SELECT * FROM funcionario WHERE login = '$email' AND senha = '$md5Senha'") or die("erro ao selecionar");
-      if (mysql_num_rows($sql)<=0){
-        echo "<div class='w3-responsive w3-card-4'>";
+      if (mysql_num_rows($sql) == 1){
+        echo "<div>";
 		if ($result = mysqli_query($conn, $sql)) {
-				echo "Um registro adicionado!";
+				echo "Login";
+                $logado = true;
         }else {
 			echo "Erro executando Login: " . mysqli_error($conn);
 		}
@@ -115,21 +114,12 @@
   }
 
 ?>
-		
-
-	
-		
-
-		// Faz Select na Base de Dados
-		$sql = "INSERT INTO Funcionario ( nome, telefone,dataNascimento, estadoCivil, cargoId, empresaId, email, Senha) VALUES ('$nome', '$CPF', '$dataNascimento', '$telefone', '$empresaId', '$cargoId', '$email', '$md5Senha')";
-		ncerra conexao com o BD
-
-	?>
-  </div>
 </div>
-<!-- FIM PRINCIPAL -->
 </div>
-<!-- Inclui RODAPE.PHP  -->
+</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+	</script>
 </body>
 </html>
 

@@ -82,13 +82,7 @@
 				</div>
 
             </main>
-
-
-
-
-            <!-- FIM PRINCIPAL -->
         </div>
-        <!-- Rodapé -->
         <footer>
             <div id="contact-area">
                 <div class="container">

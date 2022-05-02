@@ -19,7 +19,7 @@
 						Logue-se para continuar
 					</span>
 					
-					<form class="w3-container" action="login_exe.php" method="POST">
+					<form action="login_exe.php" method="POST">
 					<div class="wrap-input100 validate-input" data-validate = "Insira um Email válido: ex@abc.xyz">
 						<input class="input100" type="text" name="email" id="email">
 						<span class="focus-input100"></span>
