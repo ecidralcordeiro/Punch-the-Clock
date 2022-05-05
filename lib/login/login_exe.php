@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 
 <html lang="pt-BR">
 <meta charset="UTF-8">
@@ -67,10 +66,11 @@
 <div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
 
 <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-  <h1 class="w3-xxlarge">Registro de Funcionarios</h1>
+  <h1 class="w3-xxlarge">Logado</h1>
 
   <p class="w3-large">
   <div class="w3-code cssHigh notranslate">
+
   <!-- Acesso em:-->
 	<?php
 
@@ -85,7 +85,7 @@
 	<!-- Acesso ao BD-->
 	<?php
     $email  = $_POST['email'];
-    $md5Senha = md5("sdv-".$_POST['senha']);
+    $md5Senha = md5($_POST['senha']);
 
     // Cria conexão
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -100,19 +100,15 @@
 		mysqli_query($conn,'SET character_set_results=utf8');
 
     // Faz Select na Base de Dados
-    $sql = mysql_query("SELECT * FROM funcionario WHERE login = '$email' AND senha = '$md5Senha'") or die("erro ao selecionar");
+    $sql = mysql_query("SELECT * FROM funcionario WHERE email = '$email' AND senha = '$md5Senha'") or die("erro ao selecionar");
       if (mysql_num_rows($sql) == 1){
-        echo "<div>";
-		if ($result = mysqli_query($conn, $sql)) {
-				echo "Login";
-                $logado = true;
-        }else {
-			echo "Erro executando Login: " . mysqli_error($conn);
-		}
-        echo "</div>";
-		mysqli_close($conn);  //E
+        
+        echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+  }else{
+      echo "Erro";
   }
 
+  mysqli_close($conn); 
 ?>
 </div>
 </div>

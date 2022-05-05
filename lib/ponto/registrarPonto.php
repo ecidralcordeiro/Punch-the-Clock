@@ -7,8 +7,9 @@
 <script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/Style.css">
+<script src="registrarPonto.js"></script>
 
-<body>
+<body onload="getDate()">
     <header>
         <div class = "container" id= "nav-container">
             <nav class="navbar navbar-expand-lg fixed-top">
@@ -65,15 +66,18 @@
                 <center>
                     <h1 class=>Punch the Clock</h1>
                 </center>
-
-                <img src="../../Imagens/1.svg" id="imgpt"></img>
+                <div id="imgpt">
+                    <img src="../../Imagens/luq.png" id="imgpt"></img>
+                </div>
                 <div id="ponto1">
-                <h2>Nome Legal Funcionario</h2>
-                <p>Matrícula: 123456</p>
+                    <h2>Luca mairionese</h2>
+                </div>
+                <div id="ponto1">
+                <h2>Matrícula: 123456</h2>
                 </div>
                 <div id="ponto2">
-                    <h2>00/00/0000 - 00:00</h2>
-                    <img src="../../Imagens/1.svg"></img> <br>
+                    <H2 id="data">a</H2>
+                    <img src="../../Imagens/abc.PNG"></img> <br>
                 </div>
                 <div class="container-login100-form-btn" id="divbt">
 					<button class="login100-form-btn" id=btponto>
