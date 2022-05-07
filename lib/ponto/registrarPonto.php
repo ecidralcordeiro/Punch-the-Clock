@@ -7,9 +7,12 @@
 <script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/Style.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
 <script src="registrarPonto.js"></script>
 
-<body onload="getDate()">
+<body onload="getDate(), getLocal()">
     <header>
         <div class = "container" id= "nav-container">
             <nav class="navbar navbar-expand-lg fixed-top">
@@ -28,23 +31,23 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-users"style="padding-right: 10px;"></i>Funcionarios</a>
                                 <ul class="dropdown-menu">
-                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioIncluir.php">Cadastrar</a></li>
-                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioIncluir.php">Cadastrar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-users"style="padding-right: 10px;"></i>Ponto</a>
                                 <ul class="dropdown-menu">
-                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioIncluir.php">Cadastrar</a></li>
-                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/ponto/registrarPonto.php">Registrar</a></li>
-                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioIncluir.php">Cadastrar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/ponto/registrarPonto.php">Registrar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-briefcase"style="padding-right: 10px;"></i>Cargos</a>
                                 <ul class="dropdown-menu">
-                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioListar.php">Cadastrar</a></li>
-                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch_the_clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioListar.php">Cadastrar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -58,48 +61,55 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 
-    <!-- Conteúdo PRINCIPAL -->
-    <div style="margin-top:117px;">
+<?php require '../conectaBD.php'; ?>
+
+
+<?php 
+    $consulta = "SELECT * FROM pontos"; 
+    $con = $mysqli->query($consulta) or die($mysqli->error);
+?> 
+
+<div style="margin-top:50px;">
 
         <div >
             <main>
                 <center>
-                    <h1 class=>Punch the Clock</h1>
+                    <h1 class=>Registrar Ponto</h1>
                 </center>
                 <div id="imgpt">
-                    <img src="../../Imagens/luq.png" id="imgpt"></img>
-                </div>
-                <div id="ponto1">
-                    <h2>Luca mairionese</h2>
-                </div>
-                <div id="ponto1">
-                <h2>Matrícula: 123456</h2>
-                </div>
+                    <img src="../../Imagens/usu.png" id="imgpt"></img>
+                </div> <br>
+                
+                <div id="divPonto"> 
+                    <table> 
+                        <tr> 
+                        <td class="idFuncionario">Identificação do funcionário:</td> 
+                        </tr> 
+                        <?php while($dado = $con->fetch_array()) { ?> 
+                        <tr> 
+                        <td class="idFuncionario"><?php echo $dado['funcionarioId']; ?></td>
+                        </tr>
+                        <?php } ?> 
+                    </table> 
+                </div> <br>
+
                 <div id="ponto2">
-                    <H2 id="data">a</H2>
-                    <img src="../../Imagens/abc.PNG"></img> <br>
+                    <h2 id="data" name="data"></h2>
+                    <h2 id="hora" name="hora"></h2> <br> <br>
+                    <h2>Localização:</h2>
+                    <img src="../../Imagens/local.jpg"></img> <br>
                 </div>
+
+                <div>
+                    <h2 id="local"></h2>
+                </div>
+
                 <div class="container-login100-form-btn" id="divbt">
-					<button class="login100-form-btn" id=btponto>
+					<button class="login100-form-btn" id=btponto onclick="onSuceed()">
 						Registrar
 					</button>
 				</div>
-
             </main>
         </div>
-        <footer>
-            <div id="contact-area">
-                <div class="container">
-                    <div class= row>
-                        <div class="col-md-12">
-                            <h3></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
 
 </body>
-
-</html>

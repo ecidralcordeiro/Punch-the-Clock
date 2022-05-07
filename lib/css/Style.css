@@ -47,13 +47,11 @@ header, nav {
 
 /* CSS "PONTO" */
 
-#ponto1 {
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-margin-top: 25px;
-margin-bottom: 25px;
+main {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 900px;
 }
 
 #ponto2 {
@@ -63,8 +61,6 @@ margin-bottom: 25px;
 }
 
 #imgpt {
-    align-items: center;
-    text-align: center;
     margin-top: 10px;
 }
 
@@ -78,6 +74,24 @@ margin-bottom: 25px;
     color: white;
 }
 
+#divPonto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.idFuncionario {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+tr {
+    display: inline-block;
+}
+
+#dataHora {
+}
 .container-login100-form-btn {
     width: 100%;
     display: -webkit-box;
@@ -105,7 +119,8 @@ margin-bottom: 25px;
     background: #6be8f4;
   
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 15px;
+    font-weight: bold;
     color: #fff;
     line-height: 1.2;
     text-transform: uppercase;
