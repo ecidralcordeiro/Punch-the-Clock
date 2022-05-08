@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS punch_the_clock.funcionario (
   nome VARCHAR(45) NOT NULL,
   CPF VARCHAR(45) NOT NULL,
   dataNascimento DATE NOT NULL,
+  dataContratação DATE NOT NULL,
+  dataDemissão DATE,
   telefone VARCHAR(15) NULL DEFAULT NULL,
   sexo VARCHAR(15) NOT NULL,
   estadoCivil VARCHAR(45) NOT NULL,

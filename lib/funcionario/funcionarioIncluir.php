@@ -93,6 +93,15 @@
                         <option>3</option>
                         <option>4</option>
                     </select>
+                </div> 
+                <div class="col-md-4">
+                    <label for="inputCargo" class="form-label" style="margin-right:500px">Cargo</label>
+                    <select id="inputCargo" class="form-select" style="width:498px" name="cargoId">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary" style="margin-top:30px" onclick="window.location.href='.'">Registrar</button>
