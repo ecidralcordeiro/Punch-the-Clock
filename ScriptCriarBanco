@@ -5,7 +5,7 @@ USE punch_the_clock;
 
 CREATE TABLE IF NOT EXISTS cargo (
   idCargo INT(11) AUTO_INCREMENT,
-  drescricao VARCHAR(45) NOT NULL,
+  descricao VARCHAR(45) NOT NULL,
   PRIMARY KEY (idCargo));
 
 CREATE TABLE IF NOT EXISTS plano (
@@ -23,6 +23,13 @@ CREATE TABLE IF NOT EXISTS plano (
   PRIMARY KEY (idEmpresa),
     FOREIGN KEY (planoId)
     REFERENCES punch_the_clock.plano (idPlano));
+
+    CREATE TABLE IF NOT EXISTS cargaHoraria (
+  idCargaHoraria INT(11)  AUTO_INCREMENT,
+  tipo VARCHAR(45) NOT NULL,
+  horas VARCHAR(14) NOT NULL,
+  quantidadeMarcacoes INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (idCargaHoraria));
     
     
 CREATE TABLE IF NOT EXISTS punch_the_clock.funcionario (
@@ -31,6 +38,7 @@ CREATE TABLE IF NOT EXISTS punch_the_clock.funcionario (
   CPF VARCHAR(45) NOT NULL,
   dataNascimento DATE NOT NULL,
   telefone VARCHAR(15) NULL DEFAULT NULL,
+  sexo VARCHAR(15) NOT NULL,
   estadoCivil VARCHAR(45) NOT NULL,
   email VARCHAR(45) NOT NULL,
   senha VARCHAR(45) NOT NULL,
@@ -49,6 +57,17 @@ CREATE TABLE IF NOT EXISTS punch_the_clock.funcionario (
   funcionarioId INT(11) NOT NULL,
   PRIMARY KEY (idPontos),
     FOREIGN KEY (funcionarioId)
+    REFERENCES punch_the_clock.funcionario (idFuncionario));
+
+  CREATE TABLE IF NOT EXISTS bancoDeHoras (
+  idBancoDeHoras INT(11)  AUTO_INCREMENT,
+  horasTrabalhadas INT(11) NOT NULL,
+  debito INT(11) NOT NULL,
+  credito INT(11) NULL DEFAULT NULL,
+  mesReferencia  DATE NOT NULL,
+  funcionarioId INT(11) NOT NULL,
+  PRIMARY KEY (idBancoDeHoras),
+   FOREIGN KEY (funcionarioId)
     REFERENCES punch_the_clock.funcionario (idFuncionario));
   
 
