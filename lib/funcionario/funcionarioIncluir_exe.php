@@ -68,6 +68,7 @@
 			$telefone  = $_POST['telefone'];
 			$empresaId  = $_POST['empresaId'];
 			$cargoId  = $_POST['cargoId'];
+			$cargaHorariaId = $_POST['cargaHorariaId'];
 			$email  = $_POST['email'];
 			$senha  = $_POST['senha'];
 			$acao  = $_POST['acaoForm'];
@@ -106,7 +107,7 @@
 			mysqli_query($conn,'SET character_set_results=utf8');
 
 			// Faz Select na Base de Dados
-			$sql = "INSERT INTO Funcionario ( nome, telefone,dataNascimento, estadoCivil, cargoId, empresaId, email, Senha) VALUES ('$nome', '$CPF', '$dataNascimento', '$telefone', '$empresaId', '$cargoId', '$email', '$md5Senha')";
+			$sql = "INSERT INTO Funcionario ( nome, telefone,dataNascimento, estadoCivil, cargoId, empresaId,cargaHorariaId, email, Senha) VALUES ('$nome', '$CPF', '$dataNascimento', '$telefone', '$empresaId', '$cargoId','$cargaHorariaId' '$email', '$md5Senha')";
 			echo "<div class='w3-responsive w3-card-4'>";
 			if ($result = mysqli_query($conn, $sql)) {
 				if ($acao == "Contratar")

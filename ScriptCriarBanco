@@ -24,10 +24,12 @@ CREATE TABLE IF NOT EXISTS plano (
     FOREIGN KEY (planoId)
     REFERENCES punch_the_clock.plano (idPlano));
 
-    CREATE TABLE IF NOT EXISTS punch_the_clock.cargaHoraria (
+
+CREATE TABLE IF NOT EXISTS punch_the_clock.cargaHoraria (
   idCargaHoraria INT(11)  AUTO_INCREMENT,
   tipo VARCHAR(45) NOT NULL,
   horas VARCHAR(14) NOT NULL,
+  noturno BIT NOT NULL,
   quantidadeMarcacoes INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (idCargaHoraria));
     
@@ -54,17 +56,19 @@ CREATE TABLE IF NOT EXISTS punch_the_clock.funcionario (
     REFERENCES punch_the_clock.cargaHoraria (idCargaHoraria),
     FOREIGN KEY (empresaId)
     REFERENCES punch_the_clock.empresa (idEmpresa));
+
     
-    CREATE TABLE IF NOT EXISTS punch_the_clock.pontos (
+CREATE TABLE IF NOT EXISTS punch_the_clock.pontos (
   idPontos INT(11)  AUTO_INCREMENT,
-  data DATE NOT NULL,
+  dataMarcacao DATE NOT NULL,
+  dataRegistro DATE NOT NULL,
   hora INT(11) NOT NULL,
   funcionarioId INT(11) NOT NULL,
   PRIMARY KEY (idPontos),
     FOREIGN KEY (funcionarioId)
     REFERENCES punch_the_clock.funcionario (idFuncionario));
 
-  CREATE TABLE IF NOT EXISTS bancoDeHoras (
+CREATE TABLE IF NOT EXISTS punch_the_clock.bancoDeHoras (
   idBancoDeHoras INT(11)  AUTO_INCREMENT,
   horasTrabalhadas INT(11) NOT NULL,
   debito INT(11) NOT NULL,

@@ -81,9 +81,14 @@
                     <label for="inputCpf" class="form-label" style="margin-right:500px" >CPF</label>
                     <input type="text" class="form-control" id="inputCpf" name="CPF">
                 </div>
+                
                 <div class="col-md-6">
                     <label for="inputCity" class="form-label" style="margin-right:350px" >Data de Nascimento</label>
                     <input type="date" class="form-control" id="inputDataNascimento" name="dataNacimento">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label" style="margin-right:350px" >Data de Inicio</label>
+                    <input type="date" class="form-control" id="inputDataNascimento" name="dataDeInicio">
                 </div>
                 <div class="col-md-4">
                     <label for="inputCargo" class="form-label" style="margin-right:500px">Cargo</label>
@@ -94,9 +99,9 @@
                         <option>4</option>
                     </select>
                 </div> 
-                <div class="col-md-4">
-                    <label for="inputCargo" class="form-label" style="margin-right:500px">Cargo</label>
-                    <select id="inputCargo" class="form-select" style="width:498px" name="cargoId">
+                <div class="col-md-6">
+                    <label for="inputCargaHoraria" class="form-label" style="margin-right:500px">CargaHoraria</label>
+                    <select id="inputCargaHoraria" class="form-select" style="width:498px" name="cargaHorariaId">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
