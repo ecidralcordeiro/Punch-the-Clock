@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS plano (
     FOREIGN KEY (planoId)
     REFERENCES punch_the_clock.plano (idPlano));
 
-    CREATE TABLE IF NOT EXISTS cargaHoraria (
+    CREATE TABLE IF NOT EXISTS punch_the_clock.cargaHoraria (
   idCargaHoraria INT(11)  AUTO_INCREMENT,
   tipo VARCHAR(45) NOT NULL,
   horas VARCHAR(14) NOT NULL,
@@ -44,9 +44,12 @@ CREATE TABLE IF NOT EXISTS punch_the_clock.funcionario (
   senha VARCHAR(45) NOT NULL,
   empresaId INT(11) NOT NULL,
   cargoId INT(11) NOT NULL,
+  cargaHorariaId INT(11) NOT NULL,
   PRIMARY KEY (idFuncionario),
     FOREIGN KEY (cargoId)
     REFERENCES punch_the_clock.cargo (idCargo),
+     FOREIGN KEY (cargaHorariaId)
+    REFERENCES punch_the_clock.cargaHoraria (idCargaHoraria),
     FOREIGN KEY (empresaId)
     REFERENCES punch_the_clock.empresa (idEmpresa));
     
