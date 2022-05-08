@@ -13,8 +13,8 @@
 <body>
     <header>
         <div class = "container" id= "nav-container">
-            <nav class="navbar navbar-expand-lg fixed-top">
-                <a href="http://localhost/punch-the-clock/lib/login/login.php" class="navbar-brand">
+            <nav class="navbar navbar-expand-lg fixed-top bg-dark">
+                <a href="http://localhost/punch_the_clock/lib/login/login.php" class="navbar-brand">
                     <img id="logo" src="../imagens/Logo_ptc.jpeg" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-users"style="padding-right: 10px;"></i>Ponto</a>
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-arrows-to-dot" style="padding-right: 10px;"></i>Ponto</a>
                                 <ul class="dropdown-menu">
                                     <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioIncluir.php">Cadastrar</a></li>
                                     <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/ponto/registrarPonto.php">Registrar</a></li>
@@ -54,40 +54,65 @@
             </nav> 
         </div>
     </header>
+        <nav id="subHeader" class="navbar navbar-light bg-light" style="margin-top:25px; border-bottom:3px solid #7bd5dd">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left:25px">
+            <img src="../imagens/Maionese.jpeg" alt="mdo" width="45" height="45" class="rounded-circle">
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioPerfil.php">Perfil</a>
+                <a class="dropdown-item" href="#">Configurações</a>
+                <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Sair</a>
+                </div>
+            </div>
+            </a>
+            <ul class="nav nav-pills" style="margin-right:25px">
+                <li class="nav-item" style="margin-right:15px">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Texto" aria-label="Search">
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Pesquisar</button>
+                </li>
+            </ul>
+        </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-
-
+            
+            <center>
+            <br><br><br>
+            <h1>Punch the Clock</h1>
+            <h2>Home</h2>
+            </center>
     <!-- Conteúdo PRINCIPAL -->
     <div style="margin-left:270px;margin-top:117px;">
 
-        <div >
-            <main>
-                <center>
-                    <h1 class=>Punch the Clock</h1>
-                </center>
+        <div>
+            <main style="height:480px">
             </main>
-
-
-
-
-            <!-- FIM PRINCIPAL -->
         </div>
-        <!-- Rodapé -->
-        <footer>
-            <div id="contact-area">
-                <div class="container">
-                    <div class= row>
-                        <div class="col-md-12">
-                            <h3></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    </div>
 
+
+        <!-- FIM PRINCIPAL -->
+    <footer class="bg-dark text-center text-white form-white" style="border-top:3px solid #7bd5dd">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Form -->
+            <section class="mb-4">
+                <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/ecidralcordeiro/Punch-the-Clock" role="button"><i class="fab fa-github"></i></a>
+            </section>
+            <form action="">
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-white">Punch The Clock</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 
 </body>
 

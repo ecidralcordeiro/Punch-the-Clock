@@ -3,11 +3,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Punch The Clock</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/Style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/Style.css">
 
 <body>
@@ -80,70 +78,142 @@
     </script>
 
 
-<!-- Conteúdo Principal -->
-<br>
-    <br>
-    <center>
-        <h1>Cadastro de Funcionário</h1>                
-        <br>
-        <br>
-    <center>
-                <?php
-                date_default_timezone_set("America/Sao_Paulo");
-                $data = date("d/m/Y H:i:s", time());
-                echo "<p class='w3-small' > ";
-                echo "Acesso em: ";
-                echo $data;
-                echo "</p> "
-                ?>
-        <div id=caixa style=" width:1024px; height:430px; background-color:rgb(238, 238, 238); border:1px solid black; border-radius:15px; position:relative padding-bottom:48%;">
-            <form class="row g-3" action="funcionarioIncluir_exe.php" method="post" onsubmit="return check(this.form)">
-                <input type="hidden" id="acaoForm" name="acaoForm" value="Contratar">
-                <div class="col-md-6">
-                    <label for="inputNome" class="form-label"style="margin-right:500px">Nome</label>
-                    <input type="text" class="form-control" id="inputNome" name="nome">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label" style="margin-right:500px" >Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" name="email">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label" style="margin-right:500px">Senha</label>
-                    <input type="password" class="form-control" id="inputPassword" name="senha">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label" style="margin-right:500px">Senha</label>
-                    <input type="password" class="form-control" id="inputPassword" name="senha2">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputCelular" class="form-label" style="margin-right:500px">Celular</label>
-                    <input type="text" class="form-control" id="inputAddress" name="telefone">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputCpf" class="form-label" style="margin-right:500px" >CPF</label>
-                    <input type="text" class="form-control" id="inputCpf" name="CPF">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputCity" class="form-label" style="margin-right:350px" >Data de Nascimento</label>
-                    <input type="date" class="form-control" id="inputDataNascimento" name="dataNacimento">
-                </div>
-                <div class="col-md-4">
-                    <label for="inputCargo" class="form-label" style="margin-right:500px">Cargo</label>
-                    <select id="inputCargo" class="form-select" style="width:498px" name="cargoId">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </select>
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary" style="margin-top:30px" onclick="window.location.href='.'">Registrar</button>
-                </div>
-            </form>
+<!-- Conteudo principal !-->
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="http://localhost/punch-the-clock/lib">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="../../imagens/Maionese.jpeg" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">Nome</h5>
+            <p class="text-muted mb-1">Empresa: </p>
+            <p class="text-muted mb-4">Cargo: </p>
+            <div class="d-flex justify-content-center mb-2">
+              <button type="button" class="btn btn-primary">Excluir</button>
+              <button type="button" class="btn btn-outline-primary ms-1">Editar</button>
+            </div>
+          </div>
         </div>
-        
-        <br><br><br><br><br><br><br><br>
-<footer class="bg-dark text-center text-white form-white" style="border-top:3px solid #7bd5dd">
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3">
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fas fa-globe fa-lg text-warning"></i>
+                <p class="mb-0">--</p>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                <p class="mb-0">--</p>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                <p class="mb-0">--</p>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Nome completo</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">--</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">exemplo@example.com</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Data nascimento</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">10/10/2000</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Celular</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">(41) 9999-9999</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Endereço</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">--</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1">Lista de</span> Pontos
+                </p>
+                <p class="mb-1" style="font-size: .77rem;"></p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;"></p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 80" aria-valuenow="80"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;"></p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;"></p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;"></p>
+                <div class="progress rounded mb-2" style="height: 5px;">
+                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- FIM PRINCIPAL -->
+ <footer class="bg-dark text-center text-white form-white" style="border-top:3px solid #7bd5dd">
         <!-- Grid container -->
         <div class="container p-4 pb-0">
             <!-- Section: Form -->
@@ -160,7 +230,9 @@
             <a class="text-white">Punch The Clock</a>
         </div>
         <!-- Copyright -->
-</footer>
-	
+    </footer>
+
+
 </body>
+
 </html>
