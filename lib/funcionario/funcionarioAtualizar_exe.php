@@ -98,7 +98,8 @@
 
         <!-- FIM PRINCIPAL -->
     </div>
-    <?php require 'rodape.php';?>
+	<?php require '../models/footer.php'; ?>
+
 </body>
 
 </html>
