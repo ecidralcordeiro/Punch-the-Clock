@@ -6,15 +6,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="../css/Style.css">
 
 
 <body>
 <?php require '../models/header.php'; ?>
-
+<!-- Sub Header !-->
         <nav id="subHeader" class="navbar navbar-light bg-light" style="margin-top:25px; border-bottom:3px solid #7bd5dd">
             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left:25px">
-            <img src="../imagens/Maionese.jpeg" alt="mdo" width="45" height="45" class="rounded-circle">
+            <img src="../../imagens/Maionese.jpeg" alt="mdo" width="45" height="45" class="rounded-circle">
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioPerfil.php">Perfil</a>
                 <a class="dropdown-item" href="#">Configurações</a>
@@ -32,7 +32,7 @@
                 </li>
             </ul>
         </nav>
-
+<!-- Fim Sub Header !-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>

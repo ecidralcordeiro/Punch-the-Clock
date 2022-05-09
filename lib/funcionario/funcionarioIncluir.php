@@ -70,7 +70,7 @@
                     <input type="password" class="form-control" id="inputPassword" name="senha">
                 </div>
                 <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label" style="margin-right:500px">Senha</label>
+                    <label for="inputPassword4" class="form-label" style="margin-right:500px">Confirmar senha</label>
                     <input type="password" class="form-control" id="inputPassword" name="senha2">
                 </div>
                 <div class="col-md-6">
@@ -87,7 +87,7 @@
                     <input type="date" class="form-control" id="inputDataNascimento" name="dataNacimento">
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCity" class="form-label" style="margin-right:350px" >Data de Inicio</label>
+                    <label for="inputCity" class="form-label" style="margin-right:400px" >Data de Inicio</label>
                     <input type="date" class="form-control" id="inputDataNascimento" name="dataDeInicio">
                 </div>
                 <div class="col-md-4">
@@ -99,9 +99,9 @@
                         <option>4</option>
                     </select>
                 </div> 
-                <div class="col-md-6">
-                    <label for="inputCargaHoraria" class="form-label" style="margin-right:500px">CargaHoraria</label>
-                    <select id="inputCargaHoraria" class="form-select" style="width:498px" name="cargaHorariaId">
+                <div class="col-md-4">
+                    <label for="inputCargaHoraria" class="form-label" style="margin-left:100px">CargaHoraria</label>
+                    <select id="inputCargaHoraria" class="form-select" style="width:498px; margin-left:170px" name="cargaHorariaId">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
