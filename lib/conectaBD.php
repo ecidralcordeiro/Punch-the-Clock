@@ -16,7 +16,7 @@ global $logado;
 
 $logado = false;
 
-$servername = "localhost:3306";
+$servername = "localhost:3307";
 $username = "user2";
 $password = "pass";
 $database = "punch_the_clock";
