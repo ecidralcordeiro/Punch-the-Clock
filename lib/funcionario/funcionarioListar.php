@@ -72,7 +72,7 @@
                                 $nova_data = $dia . '/' . $mes . '/' . $ano;
 
                                 echo "<tbody>";
-                                echo "<th scope=row>";
+                                echo "<th 'scope=row'>";
                                     echo $cod;
                                     echo "</th><td>";
                                     echo $row["nome"];
@@ -109,10 +109,6 @@
                 ?>
       
         </div>
-
-
-        <!-- FIM PRINCIPAL -->
-        
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <?php require '../models/footer.php'; ?>

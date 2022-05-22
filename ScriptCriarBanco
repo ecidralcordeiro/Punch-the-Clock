@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS cargo (
 CREATE TABLE IF NOT EXISTS punch_the_clock.cargaHoraria (
   idCargaHoraria INT(11)  AUTO_INCREMENT,
   tipo VARCHAR(45) NOT NULL,
-  horas VARCHAR(14) NOT NULL,
+  cargaHoraria VARCHAR(14) NOT NULL,
   noturno BIT NOT NULL,
   quantidadeMarcacoes INT(11) NULL DEFAULT NULL,
   empresaId INT(11) NULL DEFAULT NULL,

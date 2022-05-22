@@ -25,14 +25,7 @@
         <br>
         <br>
     <center>
-                <?php
-                date_default_timezone_set("America/Sao_Paulo");
-                $data = date("d/m/Y H:i:s", time());
-                echo "<p class='w3-small' > ";
-                echo "Acesso em: ";
-                echo $data;
-                echo "</p> "
-                ?>
+            
         <div id=caixa style=" width:1024px; height:430px; background-color:rgb(238, 238, 238); border:1px solid black; border-radius:15px; position:relative padding-bottom:48%;">
             <form class="row g-3" action="funcionarioIncluir_exe.php" method="post" onsubmit="return check(this.form)">
                 <input type="hidden" id="acaoForm" name="acaoForm" value="Contratar">
@@ -88,7 +81,7 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary" style="margin-top:30px" onclick="window.location.href='funcionarioIncluir.php'">Registrar</button>
+                    <button type="submit" class="btn btn-primary" style="margin-top:30px" onclick="window.location.href='funcionarioIncluir_exe.php'">Registrar</button>
                 </div>
             </form>
         </div>

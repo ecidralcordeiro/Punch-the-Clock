@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-
 <html lang="pt-BR">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,47 +17,20 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 	</script>
-
 <?php require '../conectaBD.php'; ?>
 
 <div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
 	<div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-		<h1 class="w3-xxlarge">Registro de Funcionarios</h1>
+		<h1 class="w3-xxlarge">Registro de Carga Horaria</h1>
 		<p class="w3-large">
 		<div class="w3-code cssHigh notranslate">
 
-		
 		<?php
-			$nome    = $_POST['nome'];
-			$CPF = $_POST['CPF'];
-			$dataNascimento   = $_POST['dataNascimento'];
-			$dataContratacao   = $_POST['dataDeInicio'];
-			$telefone  = $_POST['telefone'];
-			$cargoId  = $_POST['cargoId'];
-			$cargaHorariaId = $_POST['cargaHorariaId'];
-			$email  = $_POST['email'];
-			$senha  = $_POST['senha'];
-			$acao  = $_POST['acaoForm'];
-		
-			
-			if ($dataNascimento != ""){
-				if (strpos($dataNascimento,"-") != false){
-					$strData = explode('-',$dataNascimento);
-				}else {
-					$strData = explode('/',$dataNascimento);
-				}
-			
-				$ano = $strData[2];
-				$mes = $strData[1];
-				$dia = $strData[0];
-
-				$nova_data = $ano.'-'.$mes.'-'.$dia;
-			}
-			else
-				$nova_data = "";
-			
-			//Criptografa Senha
-			$md5Senha = md5($_POST['senha']);
+			$idCargaHoraria = $_POST['idCargaHoraria'];
+			$tipo = $_POST['tipo'];
+			$cargaHoraria   = $_POST['cargaHoraria'];
+			$noturno   = $_POST['noturno'];
+			$quantidadeMarcacoes  = $_POST['quantidadeMarcacoes'];
 
 			// Cria conexão
 			$conn = mysqli_connect($servername, $username, $password, $database);
@@ -75,7 +46,7 @@
 			mysqli_query($conn,'SET character_set_results=utf8');
 
 			// Faz Select na Base de Dados
-			$sql = "INSERT INTO Funcionario (idFuncionario, nome, CPF, dataNascimento, dataContratação, telefone, sexo, estadoCivil, email, senha, empresaId, cargoId, cargaHorariaId ) VALUES ('', '$nome', '$CPF', '$nova_data', '$nova_data', '$telefone', 'NULLO', 'NULLO', '$email', '$md5Senha', '1', '$cargoId', '$cargaHorariaId')";
+			$sql = "INSERT INTO cargaHoraria (idCargaHoraria, tipo, horas, noturno, quantidadeMarcacoes, empresaId) VALUES ('$idCargaHoraria', '$tipo', '$cargaHoraria', '$noturno', '$quantidadeMarcacoes', '1')";
 			echo "<div class='w3-responsive w3-card-4'>";
 			if ($result = mysqli_query($conn, $sql)) {
 				if ($acao == "Contratar")
