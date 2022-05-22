@@ -49,7 +49,7 @@
                     <input type="password" class="form-control" id="inputPassword" name="senha">
                 </div>
                 <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label" style="margin-right:500px">Confirmar senha</label>
+                    <label for="inputPassword4" class="form-label" style="margin-right:500px">Confirmar_senha</label>
                     <input type="password" class="form-control" id="inputPassword" name="senha2">
                 </div>
                 <div class="col-md-6">
@@ -63,7 +63,7 @@
                 
                 <div class="col-md-6">
                     <label for="inputCity" class="form-label" style="margin-right:350px" >Data de Nascimento</label>
-                    <input type="date" class="form-control" id="inputDataNascimento" name="dataNacimento">
+                    <input type="date" class="form-control" id="inputDataNascimento" name="dataNascimento">
                 </div>
                 <div class="col-md-6">
                     <label for="inputCity" class="form-label" style="margin-right:400px" >Data de Inicio</label>
@@ -88,7 +88,7 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary" style="margin-top:30px" onclick="window.location.href='.'">Registrar</button>
+                    <button type="submit" class="btn btn-primary" style="margin-top:30px" onclick="window.location.href='funcionarioIncluir.php'">Registrar</button>
                 </div>
             </form>
         </div>

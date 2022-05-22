@@ -1,12 +1,5 @@
-
 CREATE SCHEMA IF NOT EXISTS punch_the_clock DEFAULT CHARACTER SET utf8mb4 ;
 USE punch_the_clock;
-
-
-CREATE TABLE IF NOT EXISTS cargo (
-  idCargo INT(11) AUTO_INCREMENT,
-  descricao VARCHAR(45) NOT NULL,
-  PRIMARY KEY (idCargo));
 
 CREATE TABLE IF NOT EXISTS plano (
   idPlano INT(11) NOT NULL AUTO_INCREMENT,
@@ -24,14 +17,24 @@ CREATE TABLE IF NOT EXISTS plano (
     FOREIGN KEY (planoId)
     REFERENCES punch_the_clock.plano (idPlano));
 
-
+CREATE TABLE IF NOT EXISTS cargo (
+  idCargo INT(11) AUTO_INCREMENT,
+  descricao VARCHAR(45) NOT NULL,
+  empresaId INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (idCargo),
+  FOREIGN KEY (empresaId)
+    REFERENCES punch_the_clock.empresa (idEmpresa));
+    
 CREATE TABLE IF NOT EXISTS punch_the_clock.cargaHoraria (
   idCargaHoraria INT(11)  AUTO_INCREMENT,
   tipo VARCHAR(45) NOT NULL,
   horas VARCHAR(14) NOT NULL,
   noturno BIT NOT NULL,
   quantidadeMarcacoes INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (idCargaHoraria));
+  empresaId INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (idCargaHoraria),
+    FOREIGN KEY (empresaId)
+    REFERENCES punch_the_clock.empresa (idEmpresa));
     
     
 CREATE TABLE IF NOT EXISTS punch_the_clock.funcionario (

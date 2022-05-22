@@ -23,8 +23,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-briefcase"style="padding-right: 10px;"></i>Cargos</a>
                                 <ul class="dropdown-menu">
-                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioListar.php">Cadastrar</a></li>
-                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/funcionarioListar.php">Gerenciar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/cargo/cargoIncluir.php">Cadastrar</a></li>
+                                    <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/funcionario/cargoListar.php">Gerenciar</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
