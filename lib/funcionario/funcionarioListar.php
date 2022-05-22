@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="../css/Style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/Style.css">
+
+<body>
+<?php require '../models/header.php'; ?>
+<?php require '../conectaBD.php'; ?>
 
 
 <body>
@@ -22,60 +27,37 @@
 
     <?php require '../conectaBD.php'; ?>
 
-    <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
-    <div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
-
-        <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-            <h1 class="w3-xxlarge">Relação de Funcionarios</h1>
-
-            <p class="w3-large">
-            <p>
-            <div class="w3-code cssHigh notranslate">
-                <!-- Acesso em:-->
+        <div class="">
+            <h1>Relação de Funcionarios</h1>
+       
                 <?php
-
-                    date_default_timezone_set("America/Sao_Paulo");
-                    $data = date("d/m/Y H:i:s", time());
-                    echo "<p class='w3-small' > ";
-                    echo "Acesso em: ";
-                    echo $data;
-                    echo "</p> "
-                ?>
-
-                <!-- Acesso ao BD-->
-                <?php
-
-                    // Cria conexão
                     $conn = mysqli_connect($servername, $username, $password, $database);
                     
-                    // Verifica conexão 
                     if (!$conn) {
                         echo "</table>";
                         echo "</div>";
                         die("Falha na conexão com o Banco de Dados: " . mysqli_connect_error());
                     }
                     
-                    // Configura para trabalhar com caracteres acentuados do português
+                   
                     mysqli_query($conn,"SET NAMES 'utf8'");
                     mysqli_query($conn,'SET character_set_connection=utf8');
                     mysqli_query($conn,'SET character_set_client=utf8');
                     mysqli_query($conn,'SET character_set_results=utf8');
 
-                    // Faz Select na Base de Dados
                     $sql = "SELECT idFuncionario, nome, telefone,dataNascimento, estadoCivil,email, cargoId FROM Funcionario";
-                    echo "<div class='w3-responsive w3-card-4'>";
+                 
                     if ($result = mysqli_query($conn, $sql)) {
-                        echo "<table class='w3-table-all'>";
-                        echo "	<tr>";
-                        echo "	  <th>Id</th>";
-                        echo "	  <th>Nome</th>";
-                        echo "	  <th>Celular</th>";
-                        echo "	  <th>Data Nascimento</th>";
-                        echo "	  <th>email</th>";
-                        echo "	  <th>cargo</th>";
-                        echo "	  <th> </th>";
-                        echo "	  <th> </th>";
-                        echo "	</tr>";
+                        echo "<table class='table'>";
+                            echo "<thead>";
+                                echo "<tr>";
+                                    echo "<th scope='col'>Código</th>";
+                                    echo "<th scope='col'>Celular</th>";
+                                    echo "<th scope='col'>Data Nascimento</th>";
+                                    echo "<th scope='col'>email</th>";
+                                    echo "<th scope='col'>cargo</th>";
+                                echo "</tr>";
+                            echo "</thead>";
                         // $sqlCargo = "SELECT descricao from Cargo where Id = cargoId";
                         // $result
                         if (mysqli_num_rows($result) > 0) {
@@ -88,34 +70,34 @@
                                 $dia = $dataN[2];
                                 $cod = $row["idFuncionario"];
                                 $nova_data = $dia . '/' . $mes . '/' . $ano;
-                                echo "<tr>";
-                                echo "<td>";
-                                echo $cod;
-                                echo "</td><td>";
-                                echo $row["nome"];
-                                echo "</td><td>";
-                                echo $row["telefone"];
-                                echo "</td><td>";
-                                echo $nova_data;
-                                echo "</td><td>";
-                                echo $row["email"];
-                                echo "</td><td>";
-                                echo $row["cargoId"];
-                                echo "</td><td>";
-                                //Atualizar e Excluir registro de prof
+
+                                echo "<tbody>";
+                                echo "<th scope=row>";
+                                    echo $cod;
+                                    echo "</th><td>";
+                                    echo $row["nome"];
+                                    echo "</td><td>";
+                                    echo $row["telefone"];
+                                    echo "</td><td>";
+                                    echo $nova_data;
+                                    echo "</td><td>";
+                                    echo $row["email"];
+                                    echo "</td><td>";
+                                    echo $row["cargoId"];
+                                    echo "</td><td>";
                 ?>
 
                 <a href='../funcionario/funcionarioAtualizar.php?id=<?php echo $cod; ?>'><img src='../../imagens/Edit.png'
-                        title='Editar Funcionario' width='32'></a>
+                        title='Editar Funcionario' width='22'></a>
                 </td>
                 <td>
                     <a href='../funcionario/funcionarioExcluir.php?id=<?php echo $cod; ?>'><img src='../../imagens/Delete.png'
-                            title='Excluir Funcionario' width='32'></a>
+                            title='Excluir Funcionario' width='22'></a>
                 </td>
-                </tr>
                 <?php
                             }
                         }
+                            echo "</tbody>";
                             echo "</table>";
                             echo "</div>";
                     } else {
@@ -125,13 +107,13 @@
                     mysqli_close($conn);
 
                 ?>
-            </div>
+      
         </div>
 
 
         <!-- FIM PRINCIPAL -->
         
-    </div>
+
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <?php require '../models/footer.php'; ?>
 
