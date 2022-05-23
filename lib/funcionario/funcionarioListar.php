@@ -3,12 +3,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Punch The Clock</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/Style.css">
+<link rel="stylesheet" href="../css/CssDebug.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../css/Style.css">
 
 <body>
 <?php require '../models/header.php'; ?>
@@ -45,17 +43,21 @@
                     mysqli_query($conn,'SET character_set_client=utf8');
                     mysqli_query($conn,'SET character_set_results=utf8');
 
-                    $sql = "SELECT idFuncionario, nome, telefone,dataNascimento, estadoCivil,email, cargoId FROM Funcionario";
+                    $sql = "SELECT idFuncionario, nome, telefone,dataNascimento, estadoCivil,email, cargoId, empresaId FROM Funcionario";
                  
                     if ($result = mysqli_query($conn, $sql)) {
-                        echo "<table class='table'>";
+                        echo "<table class='table table-bordered'>";
                             echo "<thead>";
                                 echo "<tr>";
                                     echo "<th scope='col'>Código</th>";
-                                    echo "<th scope='col'>Celular</th>";
+                                    echo "<th scope='col'>Nome</th>";
                                     echo "<th scope='col'>Data Nascimento</th>";
                                     echo "<th scope='col'>email</th>";
                                     echo "<th scope='col'>cargo</th>";
+                                    echo "<th scope='col'>celular</th>";
+                                    echo "<th scope='col'>empresa</th>";
+                                    echo "<th scope='col'>editar</th>";
+                                    echo "<th scope='col'>excluir</th>";
                                 echo "</tr>";
                             echo "</thead>";
                         // $sqlCargo = "SELECT descricao from Cargo where Id = cargoId";
@@ -77,13 +79,15 @@
                                     echo "</th><td>";
                                     echo $row["nome"];
                                     echo "</td><td>";
-                                    echo $row["telefone"];
-                                    echo "</td><td>";
-                                    echo $nova_data;
+                                    echo  $nova_data;
                                     echo "</td><td>";
                                     echo $row["email"];
                                     echo "</td><td>";
                                     echo $row["cargoId"];
+                                    echo "</td><td>";
+                                    echo $row["telefone"];
+                                    echo "</td><td>";
+                                    echo $row["empresaId"];
                                     echo "</td><td>";
                 ?>
 
@@ -110,7 +114,7 @@
       
         </div>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
     <?php require '../models/footer.php'; ?>
 
 
