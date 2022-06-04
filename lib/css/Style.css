@@ -71,6 +71,7 @@ main {
 }
 
 #btponto {
+    display: inline-block;
     width: 150px;
     color: #353D41;
     margin-top: 15px;
@@ -85,6 +86,13 @@ main {
     align-items: center;
     justify-content: center;
 
+}
+
+#formPonto {
+    display: block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .idFuncionario {
