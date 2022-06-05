@@ -4,14 +4,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Punch The Clock</title>
 <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+<<<<<<< HEAD
 <link rel="stylesheet" href="./css.css">
+=======
+<link rel="stylesheet" href="../css/CssDebug.css">
+>>>>>>> 0fb4ed67f4179554c4c9cd210131016657d4b45e
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
 
 <body>
 <?php require '../models/header.php'; ?>
 <?php require '../conectaBD.php'; ?>
-<br><br><br><br><br><br>
+<br><br>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -20,10 +24,8 @@
 
    <center>
     <h1>Cadastro de Cargo</h1>   
-    
-    <button>Add Cargo</button>
-
-        <div class="">
+    <br>
+    <div class="">
             <?php
                 // Cria conexão
                 $conn = mysqli_connect($servername, $username, $password, $database);
@@ -96,7 +98,15 @@
         ?>
         </center>
     </div>
+<<<<<<< HEAD
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+=======
+    <center>
+        <br><br>
+    <button>Add Cargo</button>
+        </center>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+>>>>>>> 0fb4ed67f4179554c4c9cd210131016657d4b45e
     <?php require '../models/footer.php'; ?>
 
 </body>

@@ -24,7 +24,7 @@
 
 
 <?php 
-    $consulta = "SELECT * FROM pontos"; 
+    $consulta = "SELECT * FROM Funcionario";  
     $con = $mysqli->query($consulta) or die($mysqli->error);
 ?> 
 
@@ -38,38 +38,60 @@
                 <div id="imgpt">
                     <img src="../../Imagens/usu.png" id="imgpt"></img>
                 </div> <br>
-                
-                <div id="divPonto"> 
-                    <table> 
-                        <tr> 
-                        <td class="idFuncionario">Identificação do funcionário:</td> 
-                        </tr> 
-                        <?php while($dado = $con->fetch_array()) { ?> 
-                        <tr> 
-                        <td class="idFuncionario"><?php echo $dado['funcionarioId']; ?></td>
-                        </tr>
-                        <?php } ?> 
-                    </table> 
-                </div> <br>
+                <form id="formPonto" method="get" action="" onsubmit="return check(this.form)">
+                    <div id="divPonto"> 
+                        <table> 
+                            <tr> 
+                            <td class="idFuncionario">Identificação do funcionário:</td> 
+                            </tr> 
+                            <?php while($dado = $con->fetch_array()) { ?> 
+                            <tr> 
+                            <td name="idFuncionario" class="idFuncionario"><?php echo $dado['idFuncionario']; ?></td>
+                            <input type="hidden" name="idFuncionarioi" value="<?php echo $dado["idFuncionario"]; ?>">
+                            <input type="hidden" id="datai" name="datai" value="">
+                            <input type="hidden" id="horai" name="horai" value="">
+                            </tr>
+                            <?php } ?> 
+                        </table> 
+                    </div> <br>
 
-                <div id="ponto2">
-                    <h2 id="data" name="data"></h2>
-                    <h2 id="hora" name="hora"></h2> <br> <br>
-                    <h2>Localização:</h2>
-                    <img src="../../Imagens/local.jpg"></img> <br>
-                </div>
+                    <div id="ponto2">
+                        <h2 id="data" name="data"></h2>
+                        <h2 id="hora" name="hora"></h2> <br>
+                        <h2 name="local">Localização:</h2>
+                        <img src="../../Imagens/local.jpg"></img> <br>
+                    </div>
 
-                <div>
-                    <h2 id="local"></h2>
-                </div>
+                    <div>
+                        <h2 id="local"></h2>
+                    </div>
 
-                <div class="container-login100-form-btn" id="divbt">
-					<button class="login100-form-btn" id=btponto onclick="onSuceed()">
-						Registrar
-					</button>
-				</div>
+                    <button type="submit" class="login100-form-btn" id=btponto>
+                    Registrar
+                    </button>
+                </form>
             </main>
         </div>
+
+        
+
+        <?php
+            error_reporting(E_ERROR | E_PARSE);
+
+		    $data    = $_GET['datai'];
+			$funcionarioId = $_GET['idFuncionarioi'];
+			$hora   = $_GET['horai'];
+			
+			$conn = mysqli_connect($servername, $username, $password, $database);
+
+			$sql = "INSERT INTO Pontos (dataMarcacao, dataRegistro, funcionarioId, hora) VALUES ('$data', '$data', '$funcionarioId', '$hora')";
+            if (mysqli_query($conn, $sql)) {
+                echo '<div style="text-align:center;"><a style="font-size:30px; display:block;color:green">Ponto Registrado!</a></div>';
+            }
+            mysqli_close($conn);
+		?>
+
+        
 </div>
 <?php require '../models/footer.php'; ?>
 
