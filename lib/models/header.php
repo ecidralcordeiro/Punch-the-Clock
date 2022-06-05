@@ -33,6 +33,12 @@
                                     <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/cargaHoraria/cargaHorariaListar.php">Gerenciar</a></li>
                                 </ul>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-briefcase"style="padding-right: 10px;"></i>Espelho de Ponto</a>
+                                <ul class="dropdown-menu">
+                                <li><a style="color:black;" class="dropdown-item" href="http://localhost/punch-the-clock/lib/espelhoPonto/espelhoPonto.php">Espelho de Ponto</a></li>
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="http://localhost/punch-the-clock/lib/ponto/registrarPonto.php" role="button" aria-expanded="false" style="margin-right: 10px;"><img src="../../imagens/iconePonto.png" width=35px></a>
                             </li>
