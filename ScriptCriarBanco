@@ -79,8 +79,8 @@ CREATE TABLE IF NOT EXISTS punch_the_clock.bancoDeHoras (
   mesReferencia  DATE NOT NULL,
   funcionarioId INT(11) NOT NULL,
   PRIMARY KEY (idBancoDeHoras),
-   FOREIGN KEY (funcionarioId)
-    REFERENCES punch_the_clock.funcionario (idFuncionario));
+  FOREIGN KEY (funcionarioId)
+  REFERENCES punch_the_clock.funcionario (idFuncionario));
   
 
     

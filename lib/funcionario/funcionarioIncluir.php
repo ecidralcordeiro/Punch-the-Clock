@@ -22,7 +22,7 @@
         <br>
         <br>
     <center>
-            
+    <div style="height: 719px">
         <div id=caixa style=" width:1024px; height:430px; background-color:rgb(238, 238, 238); border:1px solid black; border-radius:15px; position:relative padding-bottom:48%;">
             <form class="row g-3" action="funcionarioIncluir_exe.php" method="post" onsubmit="return check(this.form)">
                 <input type="hidden" id="acaoForm" name="acaoForm" value="Contratar">
@@ -82,8 +82,7 @@
                 </div>
             </form>
         </div>
-        
-        <br><br><br><br><br><br><br><br>
+</div>
 
         <?php require '../models/footer.php'; ?>
 
