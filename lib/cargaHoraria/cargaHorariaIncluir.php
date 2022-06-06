@@ -52,7 +52,7 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCelular" class="form-label" style="margin-right:500px">Limite Marcações Por dia</label>
+                    <label for="inputCelular" class="form-label" style="margin-right:330px">Limite Marcações Por dia</label>
                     <input type="text" class="form-control" id="inputAddress" name="quantidadeMarcacoes">
                 </div>
                 <div class="col-12">

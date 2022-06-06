@@ -3,6 +3,7 @@
 <head>
 	<title>Punch The Clock</title>
 	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="../../images/icons/1"/>
 	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
@@ -14,14 +15,14 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<div class="login100-form validate-form">
 					<span class="login100-form-title p-b-43">
 						Logue-se para continuar
 					</span>
 					
-					<form action="login_exe.php" method="post" onsubmit="return check(this.form)">
+					<form id="login">
 						<div class="wrap-input100 validate-input" data-validate = "Insira um Email válido: ex@abc.xyz">
-							<input class="input100" type="text" name="email" id="email">
+							<input class="input100" type="text" name="nome" id="nome">
 							<span class="focus-input100"></span>
 							<span class="label-input100">Email</span>
 						</div>
@@ -31,12 +32,10 @@
 							<span class="label-input100">Senha</span>
 						</div>
 						<div class="container-login100-form-btn">
-							<button class="login100-form-btn" id="entrar" type="submit">
-								Login
-							</button>
+							<input type="submit" name="entrar" value="entrar" class="login100-form-btn">
 						</div>
 					</form>	
-				</form>
+				</div>
 				<div class="login100-more" style="background-image: url('../../imagens/2.svg');">
 				</div>
 			</div>

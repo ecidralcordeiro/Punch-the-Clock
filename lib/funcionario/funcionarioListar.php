@@ -14,9 +14,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
 >>>>>>> 0fb4ed67f4179554c4c9cd210131016657d4b45e
+<?php require '../models/header.php'; ?>
 
 <body>
-<?php require '../models/header.php'; ?>
 <?php require '../conectaBD.php'; ?>
 
 

@@ -3,76 +3,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Punch The Clock</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/CssDebug.css">
 <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="espelhoPonto.css">
 
 <?php require '../conectaBD.php'; ?>
 
 <body>
+<?php require '../models/header.php'; ?>
+
+    <center>
     <div class="titulo">
         <h2>Espelho Ponto</h2>
     </div>
-   
-    <div class="botoes">
-        <div>
-            <button>Data inicial</button>
-        </div>
-        
-        <div>
-            <button>Data Final</button>
-        </div>
+    </center>
 
-        <div>
-            <button>consultar</button>
-        </div>
-    </div>
     
-
-    <div class="tabela">
-            <table class="table table-dark">
-        <thead>
-            <tr>
-            <th scope="col">Data</th>
-            <th scope="col">Entradas</th>
-            <th scope="col">Saidas</th>
-            <th scope="col">Carga Horaria</th>
-            <th scope="col">Trabalhada</th>
-            <th scope="col">Crédito</th>
-            <th scope="col">Débito</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>-
-            <td>@mdo</td>-
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            </tr>
-        </tbody>
-        </table>
-    </div>
-
+    
     <?php
         $conn = mysqli_connect($servername, $username, $password, $database);
         
@@ -88,16 +36,22 @@
         mysqli_query($conn,'SET character_set_client=utf8');
         mysqli_query($conn,'SET character_set_results=utf8');
 
-        $sql = "SELECT dataRegistro, hora FROM pontos";
+        $pontos = "SELECT * FROM pontos";
+        $carhaHoraria = "SELECT horas FROM cargahoraria"; 
+
         
-        if ($result = mysqli_query($conn, $sql)) {
+
+
+        if ($result = mysqli_query($conn, $pontos)) {
             echo "<div class='tabela'>";
             echo "<table class='table table-bordered'>";
                 echo "<thead>";
                     echo "<tr>";
                         echo "<th scope='col'>Data</th>";
-                        echo "<th scope='col'>Entradas</th>";
-                        echo "<th scope='col'>Saidas</th>";
+                        echo "<th scope='col'>Entrada 1</th>";
+                        echo "<th scope='col'>Entrada 2</th>";
+                        echo "<th scope='col'>Saida 1</th>";
+                        echo "<th scope='col'>Saida 2</th>";
                         echo "<th scope='col'>Carga Horaria</th>";
                         echo "<th scope='col'>Trabalhada</th>";
                         echo "<th scope='col'>Crédito</th>";
@@ -106,8 +60,7 @@
                         echo "<th scope='col'>excluir</th>";
                     echo "</tr>";
                 echo "</thead>";
-            // $sqlCargo = "SELECT descricao from Cargo where Id = cargoId";
-            // $result
+       
             if (mysqli_num_rows($result) > 0) {
                 
                 // Apresenta cada linha da tabela
@@ -118,6 +71,22 @@
                     $dia = $dataN[2];
                     $nova_data = $dia . '/' . $mes . '/' . $ano;
 
+                    $hora = $row["hora"];
+                    $horas = floor($hora / 60);
+                    $string1 = sprintf("%.0f", $horas);
+                    $minutos = $hora % 60;
+                    $string2 = sprintf("%.0f", $minutos);
+                    
+                    if(strlen($string1) == 1){
+                        $string1 = "0".$string1;
+                    }
+                    if(strlen($string2) == 1){
+                        $string2 = "0".$string2;
+                    }
+
+                    $NovaHora = $string1  . ":" . $string2;
+
+
                     echo "<tbody>";
                     echo "<th 'scope=row'>";
                         echo $nova_data;
@@ -126,28 +95,15 @@
                         echo "</td><td>";
                         echo  $nova_data;
                         echo "</td><td>";
-                       
-                        
+                        echo $NovaHora;
                         echo "</td><td>";
-                        
-                        
+                        echo $row["funcionarioId"];
                         echo "</td><td>";
-                      
-                        
                         echo "</td><td>";
-                      
-                        
-                        echo "</td><td>";
-                        
-                        echo "</td><td>";
-
                         echo "</td><td>";
                         echo "</td><td>";
                         echo "</td><td>";
 
-                        echo "</td><td>";
-
-                        echo "</td><td>";
         ?>
 
         <a href='../funcionario/funcionarioAtualizar.php?id=<?php echo $cod; ?>'><img src='../../imagens/Edit.png'

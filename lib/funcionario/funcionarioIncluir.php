@@ -23,7 +23,7 @@
         <br>
     <center>
     <div style="height: 719px">
-        <div id=caixa style=" width:1024px; height:430px; background-color:rgb(238, 238, 238); border:1px solid black; border-radius:15px; position:relative padding-bottom:48%;">
+        <div id=caixa style=" width:1024px; height:580px; background-color:rgb(238, 238, 238); border:1px solid black; border-radius:15px; position:relative padding-bottom:48%;">
             <form class="row g-3" action="funcionarioIncluir_exe.php" method="post" onsubmit="return check(this.form)">
                 <input type="hidden" id="acaoForm" name="acaoForm" value="Contratar">
                 <div class="col-md-6">
@@ -56,7 +56,7 @@
                     <input type="date" class="form-control" id="inputDataNascimento" name="dataNascimento">
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCity" class="form-label" style="margin-right:400px" >Data de Inicio</label>
+                    <label for="inputCity" class="form-label" style="margin-right:395px" >Data de Inicio</label>
                     <input type="date" class="form-control" id="inputDataNascimento" name="dataDeInicio">
                 </div>
                 <div class="col-md-4">
