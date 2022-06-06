@@ -4,7 +4,7 @@
 
 if(isset($_POST['nome']) && isset($_POST['senha']) ){
 
- $dbhost = 'localhost:3306';
+ $dbhost = 'localhost:3307';
   $dbuser = 'user2';
   $dbpass = 'pass';
   $db= 'punch_the_clock';
