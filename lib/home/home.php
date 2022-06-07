@@ -48,18 +48,18 @@
                 <div class = caixa style="box-sizing: border-box;position: absolute;width: 1405px;height: 250px;top:300px;left: 350px;background: #FFFFFF;border: 1px solid #C7C7C7;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
                 <table class="table">
                             <tr>
-                            <th scope="col">04/Jun/Sabado</th>
-                            <th scope="col">05/Jun/Domingo</th>
                             <th scope="col">06/Jun/Segunda</th>
                             <th scope="col">07/Jun/Terça</th>
                             <th scope="col">08/Jun/Quarta</th>
                             <th scope="col">09/Jun/Quinta</th>
                             <th scope="col">10/Jun/Sexta</th>
+                            <th scope="col">11/Jun/Sabádo</th>
+                            <th scope="col">12/Jun/Domingo</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                                $consulta = "SELECT hora FROM pontos WHERE dataRegistro = '2022-06-04'";
+                                $consulta = "SELECT hora FROM pontos WHERE dataRegistro = '2022-06-06'";
                                 $result = $conn->query($consulta);
                                 while($dados = mysqli_fetch_assoc($result)){
                                 echo"<tr>";
