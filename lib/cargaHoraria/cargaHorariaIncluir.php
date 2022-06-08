@@ -31,29 +31,29 @@
                 <input type="hidden" id="acaoForm" name="acaoForm" value="Contratar">
                 <div class="col-md-6">
                     <label for="inputNome" class="form-label"style="margin-right:500px">Código</label>
-                    <input type="email" class="form-control" id="inputEmail4" name="idCargaHoraria">
+                    <input type="number" class="form-control" id="inputEmail4" name="idCargaHoraria" required min="1">
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label" style="margin-right:500px" >Tipo </label>
-                    <select id="inputCargo" class="form-select" style="width:498px" name="tipo">
+                    <select id="inputCargo" class="form-select" style="width:498px" name="tipo" required>
                         <option>Normal</option>
                         <option>Diaria</option>
                     </select>
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label" style="margin-right:500px">Horas</label>
-                    <input type="cargaHoraria" class="form-control" id="cargaHoraria" name="cargaHoraria">
+                    <input type="time" class="form-control" id="cargaHoraria" name="cargaHoraria" required>
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label" style="margin-right:500px">Tempo</label>
-                    <select id="inputCargo" class="form-select" style="width:498px" name="noturno">
+                    <select id="inputCargo" class="form-select" style="width:498px" name="noturno" required>
                         <option>Diurno</option>
                         <option>Noturno</option>
                     </select>
                 </div>
                 <div class="col-md-6">
                     <label for="inputCelular" class="form-label" style="margin-right:330px">Limite Marcações Por dia</label>
-                    <input type="text" class="form-control" id="inputAddress" name="quantidadeMarcacoes">
+                    <input type="number" class="form-control" id="inputAddress" name="quantidadeMarcacoes" required min="1">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary" style="margin-top:30px" onclick="window.location.href='cargaHorariaIncluir_exe.php'">Registrar</button>

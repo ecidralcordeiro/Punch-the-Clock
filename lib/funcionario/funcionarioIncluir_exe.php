@@ -21,15 +21,18 @@
 	</script>
 
 <?php require '../conectaBD.php'; ?>
-
-<div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
-	<div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-		<h1 class="w3-xxlarge">Registro de Funcionarios</h1>
-		<p class="w3-large">
-		<div class="w3-code cssHigh notranslate">
-
+	<div class="" style="height:300px">
+		<center>
+		<img src="../../imagens/25404.png" style="height:250px">
+		</center>
+		<center>
+		<h1>Tudo Certo!</h1>
+		</center>
+		<br><br><br>
 		
 		<?php
+
+		
 			$nome    = $_POST['nome'];
 			$CPF = $_POST['CPF'];
 			$dataNascimento   = $_POST['dataNascimento'];
@@ -79,7 +82,7 @@
 			echo "<div class='w3-responsive w3-card-4'>";
 			if ($result = mysqli_query($conn, $sql)) {
 				if ($acao == "Contratar")
-					echo "Um registro adicionado!";
+					echo "<p1>Registro Adcionado com sucesso!</p1>";
 				else
 					echo "Um registro alterado!";
 			} else {
@@ -89,11 +92,14 @@
 			mysqli_close($conn);  //Encerra conexao com o BD
 
 		?>
-	</div>
+		<br><br><br>
+		<center>
+		<button type="submit" class="btn btn-success" style="margin-top:30px; height:50px; width:120px; border-radius:50px" onclick="window.location.href='funcionarioIncluir.php'">Voltar</button>
+		</center>
 	</div>
 	<!-- FIM PRINCIPAL -->
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <?php require '../models/footer.php'; ?>
 
 </body>

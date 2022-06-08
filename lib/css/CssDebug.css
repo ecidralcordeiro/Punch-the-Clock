@@ -23,6 +23,7 @@ header, nav {
     width: 50px;
     height: 50px;
     border-radius: 100%;
+    margin-left:35px;
 }
 
 #iconeHeader {
@@ -62,4 +63,8 @@ header, nav {
     background: #FFFFFF;
     border: 1px solid #C7C7C7;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input:invalid, textarea:invalid{
+    border-color:red;
 }
