@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="registrarPonto.js"></script>
 
 <body onload="getDate(), getLocal()">
@@ -61,7 +62,7 @@
                         <h2 name="local">Localização:</h2>
                         <img src="../../Imagens/local.jpg"></img> <br>
                     </div>
-
+                                
                     <div>
                         <h2 id="local"></h2>
                     </div>
@@ -70,6 +71,8 @@
                     Registrar
                     </button>
                 </form>
+
+                
             </main>
         </div>
 
@@ -86,12 +89,11 @@
 
 			$sql = "INSERT INTO Pontos (dataMarcacao, dataRegistro, funcionarioId, hora) VALUES ('$data', '$data', '$funcionarioId', '$hora')";
             if (mysqli_query($conn, $sql)) {
-                echo '<div style="text-align:center;"><a style="font-size:30px; display:block;color:green">Ponto Registrado!</a></div>';
+                echo '<script>javascript:window.location="http://localhost/punch-the-clock/lib/home/home.php"</script>';
             }
             mysqli_close($conn);
 		?>
 
-        
 </div>
 <?php require '../models/footer.php'; ?>
 

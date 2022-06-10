@@ -5,14 +5,16 @@
 
 .botoes{
     
-    background-color: gray;
+    background-color: rgba(72, 220, 208, 0.739);
 }
 
 .tabela{
     margin-left: auto;
     margin-right: auto; 
+    border: 2px solid black;
+    border-radius: 20px;
     width: 1200;
-    background-color: gray;
+    background-color: rgba(72, 220, 208, 0.739);
     margin-top: 30px;
 }
 

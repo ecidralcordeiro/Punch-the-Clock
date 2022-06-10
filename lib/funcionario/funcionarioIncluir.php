@@ -52,7 +52,7 @@
                     <input type="password" class="form-control" id="inputPassword" name="senha" required minLength="8">
                 </div>
                 <div class="col-md-6">
-                    <label for="inputPassword2" class="form-label" style="margin-right:500px">Confirmar_senha</label>
+                    <label for="inputPassword2" class="form-label" style="margin-right:500px">ConfirmarSenha</label>
                     <input type="password" class="form-control" id="inputPassword2" name="senha2" required>
                 </div>
                 <div class="col-md-6">
@@ -94,8 +94,9 @@
                 </div>
             </form>
         </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
-
+        
         <?php require '../models/footer.php'; ?>
 
 </body>
