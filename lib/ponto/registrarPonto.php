@@ -67,6 +67,9 @@
                         <h2 id="local"></h2>
                     </div>
 
+                    <input placeholder="Assinatura Digital" id="inputAssinatura">
+                    </input>
+
                     <button type="submit" class="login100-form-btn" id=btponto>
                     Registrar
                     </button>

@@ -28,7 +28,7 @@
 
         <?php require '../conectaBD.php' ?>
 
-        <div class="">
+        <div style="text-align:center">
             <h1>Relação de Funcionarios</h1>
        
                 <?php
@@ -49,7 +49,12 @@
                     $sql = "SELECT idFuncionario, nome, telefone,dataNascimento, estadoCivil,email, cargoId, empresaId FROM Funcionario where ativo = 1";
                  
                     if ($result = mysqli_query($conn, $sql)) {
-                        echo "<table class='table table-bordered'>";
+                        echo "<table style='margin-left: auto;
+                        margin-right: auto; 
+                        border: 1px solid black;
+                        width: 1200;
+                        background-color: rgba(72, 220, 208, 0.739);
+                        margin-top: 30px;'>";
                             echo "<thead>";
                                 echo "<tr>";
                                     echo "<th scope='col'>Código</th>";

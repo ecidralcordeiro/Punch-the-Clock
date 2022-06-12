@@ -46,7 +46,12 @@
                     // $sqlCargo = "SELECT descricao from Cargo where Id = cargoId";
                     if (mysqli_num_rows($result) > 0) {
 
-                        echo "<table class=table>";
+                        echo "<table class=table style='margin-left: auto;
+                        margin-right: auto; 
+                        border: 1px solid black;
+                        width: 1200;
+                        background-color: rgba(72, 220, 208, 0.739);
+                        margin-top: 30px;'>";
                             echo "<thead>";
                             echo "<tr>";
                                 echo "<th scope=col>Código</th>";
