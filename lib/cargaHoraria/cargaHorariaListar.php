@@ -79,7 +79,7 @@
                                     echo "</th><td>";
                                     echo $row["tipo"];
                                     echo "</td><td>";
-                                    echo $row["horas"];
+                                    echo $row["cargaHoraria"];
                                     echo "</td><td>";
                                     echo $row["noturno"];
                                     echo "</td><td>";

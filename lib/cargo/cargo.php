@@ -76,7 +76,7 @@
                                                                
 ?>
                             <td>
-                            <a href='../cargo/cargoExcluir.php?id=<?php echo $cod; ?>'><img src='../../imagens/Edit.png'
+                            <a<?php echo $cod; ?>'><img src='../../imagens/Edit.png'
                                     title='Editar Funcionario' width='22'></a>
                             </td>
                             <td>
