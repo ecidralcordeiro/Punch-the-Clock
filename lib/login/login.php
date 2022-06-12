@@ -10,6 +10,29 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
+<?php include '../conectaBD.php'; 
+session_start(); 
+
+if (@$_REQUEST['botao'] == "entrar") {
+
+    @$nome = $_POST['nome'];
+    @$senha = md5 ($_POST['senha']);
+
+    $query = " SELECT * FROM funcionario WHERE login = '$nome' AND senha = '$senha' ";
+    $result = mysqli_query($con, $query);
+
+    while ($coluna = mysqli_fetch_array($result)) {
+
+        $_SESSION["idFuncionario"] = $coluna["idFuncionario"];
+        $_SESSION["nome"] = $coluna["nome"];
+        /*$_SESSION["UsuarioNivel"] = $coluna["nivel"];*/
+        header("Location: menu.php");
+        exit;
+
+    }
+}
+
+?>
 <body style="background-color: #666666;">
 	
 	<div class="limiter">
@@ -22,12 +45,12 @@
 					
 					<form id="login">
 						<div class="wrap-input100 validate-input" data-validate = "Insira um Email válido: ex@abc.xyz">
-							<input class="input100" type="text" name="nome" id="nome">
+							<input class="input100" type="text" name="nome" value="nome" id="nome">
 							<span class="focus-input100"></span>
 							<span class="label-input100">Email</span>
 						</div>
 						<div class="wrap-input100 validate-input" data-validate="Insira uma senha">
-							<input class="input100" type="password" name="senha" id="senha" >
+							<input class="input100" type="password" name="senha" value="senha" id="senha" >
 							<span class="focus-input100"></span>
 							<span class="label-input100">Senha</span>
 						</div>
