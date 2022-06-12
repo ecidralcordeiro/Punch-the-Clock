@@ -47,7 +47,12 @@
                     $sql = "SELECT * FROM cargaHoraria where ativo = 1";
                  
                     if ($result = mysqli_query($conn, $sql)) {
-                        echo "<table class='table table-bordered'>";
+                        echo "<table class='table table-bordered'style='margin-left: auto;
+                        margin-right: auto; 
+                        border: 1px solid black;
+                        width: 1200;
+                        background-color: rgba(72, 220, 208, 0.739);
+                        margin-top: 30px;'>";
                             echo "<thead>";
                                 echo "<tr>";
                                     echo "<th scope='col'>Código</th>";

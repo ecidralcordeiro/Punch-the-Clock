@@ -78,6 +78,13 @@ main {
     margin-top: 15px;
 }
 
+#inputAssinatura {
+    display: inline-block;
+    width: 150px;
+    color: #353D41;
+    margin-top: 15px;
+}
+
 #btponto:hover {
     color: white;
 }
@@ -105,8 +112,6 @@ tr {
     display: inline-block;
 }
 
-#dataHora {
-}
 .container-login100-form-btn {
     width: 100%;
     display: -webkit-box;
