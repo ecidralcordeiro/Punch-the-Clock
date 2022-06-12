@@ -12,8 +12,6 @@
                     <div class="navbar-nav">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                            <button onclick="window.location.href = '../models/logout.php'"> Sair </button>
-
                                 <a class="nav-item nav-link" href="http://localhost/punch-the-clock/lib/home/home.php"id="home-menu"><i class="fa fa-fw fa-home" style="padding-right: 25px;"></i>Home</a>
                             </li>
                             <li class="nav-item dropdown">
