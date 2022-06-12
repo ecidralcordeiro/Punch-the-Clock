@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Punch The Clock</title>
-<link rel="stylesheet" href="../../../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="./css.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/3717b64e79.js" crossorigin="anonymous"></script>
@@ -47,7 +47,7 @@
 			mysqli_query($conn,'SET character_set_results=utf8');
 
 			// Faz Select na Base de Dados
-			$sql = "INSERT INTO cargaHoraria (idCargaHoraria, tipo, cargaHoraria, noturno, quantidadeMarcacoes, empresaId) VALUES (null, '$tipo', '$cargaHoraria', '$noturno', '$quantidadeMarcacoes', '1')";
+			$sql = "INSERT INTO cargaHoraria (idCargaHoraria, tipo, horas, noturno, quantidadeMarcacoes, empresaId) VALUES (null, '$tipo', '$cargaHoraria', '$noturno', '$quantidadeMarcacoes', '1')";
 			echo "<div class='w3-responsive w3-card-4'>";
 			if ($result = mysqli_query($conn, $sql)) {
 				if ($acao == "Contratar")

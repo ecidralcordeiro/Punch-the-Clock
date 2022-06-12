@@ -27,7 +27,10 @@
         <?php require '../conectaBD.php' ?>
 
         <div class="">
+            <center>
             <h1>Relação de Funcionarios</h1>
+
+            </center>
        
                 <?php
                     $conn = mysqli_connect($servername, $username, $password, $database);
