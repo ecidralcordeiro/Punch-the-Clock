@@ -24,8 +24,6 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 
-
-
         <?php require '../conectaBD.php' ?>
 
         <div class="">
@@ -46,21 +44,18 @@
                     mysqli_query($conn,'SET character_set_client=utf8');
                     mysqli_query($conn,'SET character_set_results=utf8');
 
-                    $sql = "SELECT idFuncionario, nome, telefone,dataNascimento, estadoCivil,email, cargoId, empresaId FROM Funcionario where ativo = 1";
+                    $sql = "SELECT * FROM cargaHoraria where ativo = 1";
                  
                     if ($result = mysqli_query($conn, $sql)) {
                         echo "<table class='table table-bordered'>";
                             echo "<thead>";
                                 echo "<tr>";
                                     echo "<th scope='col'>Código</th>";
-                                    echo "<th scope='col'>Nome</th>";
-                                    echo "<th scope='col'>Data Nascimento</th>";
-                                    echo "<th scope='col'>email</th>";
-                                    echo "<th scope='col'>cargo</th>";
-                                    echo "<th scope='col'>celular</th>";
-                                    echo "<th scope='col'>empresa</th>";
-                                    echo "<th scope='col'>editar</th>";
-                                    echo "<th scope='col'>excluir</th>";
+                                    echo "<th scope='col'>Tipo</th>";
+                                    echo "<th scope='col'>Horas</th>";
+                                    echo "<th scope='col'>Noturno</th>";
+                                    echo "<th scope='col'>Quantidade maxima de marcações</th>";
+                        
                                 echo "</tr>";
                             echo "</thead>";
                         // $sqlCargo = "SELECT descricao from Cargo where Id = cargoId";
@@ -69,37 +64,27 @@
                             
                             // Apresenta cada linha da tabela
                             while ($row = mysqli_fetch_assoc($result)) {
-                                $dataN = explode('-', $row["dataNascimento"]);
-                                $ano = $dataN[0];
-                                $mes = $dataN[1];
-                                $dia = $dataN[2];
-                                $cod = $row["idFuncionario"];
-                                $nova_data = $dia . '/' . $mes . '/' . $ano;
-
+                                $cod = $row["idCargaHoraria"];
                                 echo "<tbody>";
                                 echo "<th 'scope=row'>";
                                     echo $cod;
                                     echo "</th><td>";
-                                    echo $row["nome"];
+                                    echo $row["tipo"];
                                     echo "</td><td>";
-                                    echo  $nova_data;
+                                    echo $row["horas"];
                                     echo "</td><td>";
-                                    echo $row["email"];
+                                    echo $row["noturno"];
                                     echo "</td><td>";
-                                    echo $row["cargoId"];
-                                    echo "</td><td>";
-                                    echo $row["telefone"];
+                                    echo $row["quantidadeMarcacoes"];
                                     echo "</td><td>";
                                     echo $row["empresaId"];
                                     echo "</td><td>";
                 ?>
 
-                <a href='../funcionario/funcionarioAtualizar.php?id=<?php echo $cod; ?>'><img src='../../imagens/Edit.png'
-                        title='Editar Funcionario' width='22'></a>
                 </td>
                 <td>
-                    <a href='../funcionario/funcionarioExcluir.php?id=<?php echo $cod; ?>'><img src='../../imagens/Delete.png'
-                            title='Excluir Funcionario' width='22'></a>
+                    <a href='../cargaHoraria/cargaHorariaExcluir.php?id=<?php echo $cod; ?>'><img src='../../imagens/Delete.png'
+                            title='Excluir Carga Horaria' width='22'></a>
                 </td>
                 <?php
                             }

@@ -1,6 +1,7 @@
 <header>
         <div class = "container" id= "nav-container">
             <nav class="navbar navbar-expand-lg fixed-top bg-dark">
+
                 <a href="http://localhost/punch-the-clock/lib/login/login.php" class="navbar-brand">
                     <img id="logo" src="../../imagens/Logo_ptc.jpeg" alt="">
                 </a>
@@ -11,6 +12,8 @@
                     <div class="navbar-nav">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
+                            <button onclick="window.location.href = '../models/logout.php'"> Sair </button>
+
                                 <a class="nav-item nav-link" href="http://localhost/punch-the-clock/lib/home/home.php"id="home-menu"><i class="fa fa-fw fa-home" style="padding-right: 25px;"></i>Home</a>
                             </li>
                             <li class="nav-item dropdown">

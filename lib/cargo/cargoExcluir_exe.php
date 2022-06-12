@@ -17,29 +17,6 @@
 
 <body>
 <?php require '../models/header.php'; ?>
-        <nav id="subHeader" class="navbar navbar-light bg-light" style="margin-top:5px; border-bottom:3px solid #7bd5dd">
-            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left:25px">
-            <img src="../../imagens/Maionese.jpeg" alt="mdo" width="40" height="40" class="rounded-circle">
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Perfil</a>
-                <a class="dropdown-item" href="#">Configurações</a>
-                <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Sair</a>
-                </div>
-            </div>
-            </a>
-            <ul class="nav nav-pills" style="margin-right:25px">
-                <li class="nav-item" style="margin-right:15px">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Texto" aria-label="Search">
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Pesquisar</button>
-                </li>
-        </ul>
-        </nav>
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -51,21 +28,11 @@
     <div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
 
         <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-            <h1 class="w3-xxlarge">Exclusão de Funcionario</h1>
+            <h1 class="w3-xxlarge">Exclusão de Cargo</h1>
 
             <p class="w3-large">
             <div class="w3-code cssHigh notranslate">
                 <!-- Acesso em:-->
-                <?php
-
-	date_default_timezone_set("America/Sao_Paulo");
-	$data = date("d/m/Y H:i:s",time());
-	echo "<p class='w3-small' > ";
-	echo "Acesso em: ";
-	echo $data;
-	echo "</p> "
-	?>
-
                 <!-- Acesso ao BD-->
                 <?php
 				
@@ -81,7 +48,7 @@
 		}
 
 		// Faz DELETE na Base de Dados
-		$sql = "UPDATE Funcionario SET ativo = 0 WHERE idFuncionario = $id";
+		$sql = "UPDATE  cargo Set ativo = 0 where idCargo = $id";
 
 		echo "<div class='w3-responsive w3-card-4'>";
 		if ($result = mysqli_query($conn, $sql)) {

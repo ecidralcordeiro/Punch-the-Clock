@@ -19,22 +19,19 @@
 
 <?php require '../conectaBD.php'; ?>
 
-<!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
 
     <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-        <h1 class="w3-xxlarge">Exclusão de Cargo</h1>
+        <h1 class="w3-xxlarge">Exclusão de Carga Horaria</h1>
 
         <p class="w3-large">
             <div class="w3-code cssHigh notranslate">
-           
+   
 
 				<?php
 	
-				// Cria conexão
 				$conn = mysqli_connect($servername, $username, $password, $database);
 
-				// Verifica conexão
 				if (!$conn) {
 					die("Connection failed: " . mysqli_connect_error());
 				}
@@ -47,24 +44,26 @@
 				$id=$_GET['id'];
 				
 				// Faz Select na Base de Dados
-				$sql = "SELECT * FROM cargo WHERE idCargo = $id";
+				$sql = "SELECT * FROM cargaHoraria WHERE idCargaHoraria = $id";
 				echo "<div class='w3-responsive w3-card-4'>"; //Inicio form
 				 if ($result = mysqli_query($conn, $sql)) {
 						if (mysqli_num_rows($result) > 0) {
 						// Apresenta cada linha da tabela
 							while ($row = mysqli_fetch_assoc($result)) {
-								
+					
 				?>
 								<div class="w3-container w3-theme">
-									<h2>Exclusão do Cargo id. = [<?php echo $row['idCargo']; ?>]</h2>
+									<h2>Exclusão da Carga Horaria id. = [<?php echo $row['idCargaHoraria']; ?>]</h2>
 								</div>
-								<form class="w3-container" action="cargoExcluir_exe.php" method="post" onsubmit="return check(this.form)">
-									<input type="hidden" id="Id" name="Id" value="<?php echo $row['idCargo']; ?>">
+								<form class="w3-container" action="cargaHorariaExcluir_exe.php" method="post" onsubmit="return check(this.form)">
+									<input type="hidden" id="Id" name="Id" value="<?php echo $row['idCargaHoraria']; ?>">
 									<p>
-									<label class="w3-text-deep-purple"><b>Nome: </b> <?php echo $row['descricao']; ?> </label></p>
+									<label class="w3-text-deep-purple"><b>Nome: </b> <?php echo $row['tipo']; ?> </label></p>
+									<p>
+									<label class="w3-text-deep-purple"><b>Celular: </b><?php echo $row['horas']; ?></label></p>				
 									
 									<input type="submit" value="Confirma exclusão?" class="w3-btn w3-red" >
-									<input type="button" value="Cancelar" class="w3-btn w3-theme" onclick="window.location.href='cargo.php'"></p>
+									<input type="button" value="Cancelar" class="w3-btn w3-theme" onclick="window.location.href='cargaHorariaListar.php'"></p>
 								</form>
 			<?php 
 							}
@@ -86,10 +85,7 @@
 <!-- FIM PRINCIPAL -->
 </div>
 <br><br><br><br><br><br><br>
-<footer>
 <?php require '../models/footer.php'; ?>
-
-</footer>
 
 </body>
 </html>

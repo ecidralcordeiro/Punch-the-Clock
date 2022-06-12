@@ -71,11 +71,11 @@
                                                                
 ?>
                             <td>
-                            <a href='../funcionario/funcionarioAtualizar.php?id=<?php echo $cod; ?>'><img src='../../imagens/Edit.png'
+                            <a href='../cargo/cargoExcluir.php?id=<?php echo $cod; ?>'><img src='../../imagens/Edit.png'
                                     title='Editar Funcionario' width='22'></a>
                             </td>
                             <td>
-                                <a href='../funcionario/funcionarioExcluir.php?id=<?php echo $cod; ?>'><img src='../../imagens/Delete.png'
+                                <a href='../cargo/cargoExcluir.php?id=<?php echo $cod; ?>'><img src='../../imagens/Delete.png'
                                         title='Excluir Funcionario' width='22'></a><br>
                             </td>
                             </tr>
@@ -93,14 +93,6 @@
 
             mysqli_close($conn);
         ?>
-        </center>
-    </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <center>
-        <br><br>
-    <button>Add Cargo</button>
-        </center>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <?php require '../models/footer.php'; ?>
 
 </body>

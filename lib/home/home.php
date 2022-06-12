@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="home.css">
 
 <?php require '../conectaBD.php'; ?>
-
+<?php require '../models/verifica.php'; ?>
 <body>
 <?php require '../models/header.php'; ?>
 
