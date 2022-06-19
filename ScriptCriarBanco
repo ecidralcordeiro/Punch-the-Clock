@@ -1,86 +1,312 @@
-CREATE SCHEMA IF NOT EXISTS punch_the_clock DEFAULT CHARACTER SET utf8mb4 ;
-USE punch_the_clock;
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 19-Jun-2022 às 02:34
+-- Versão do servidor: 10.4.20-MariaDB
+-- versão do PHP: 8.0.9
 
-CREATE TABLE IF NOT EXISTS plano (
-  idPlano INT(11) NOT NULL AUTO_INCREMENT,
-  preco DOUBLE NOT NULL,
-  quantidadeFuncionario INT(11) NOT NULL,
-  PRIMARY KEY (idPlano));
-  
-  CREATE TABLE IF NOT EXISTS empresa (
-  idEmpresa INT(11)  AUTO_INCREMENT,
-  nome VARCHAR(45) NOT NULL,
-  CNPJ VARCHAR(14) NOT NULL,
-  telefone VARCHAR(15) NULL DEFAULT NULL,
-  planoId INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (idEmpresa),
-    FOREIGN KEY (planoId)
-    REFERENCES punch_the_clock.plano (idPlano));
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-CREATE TABLE IF NOT EXISTS cargo (
-  idCargo INT(11) AUTO_INCREMENT,
-  descricao VARCHAR(45) NOT NULL,
-  empresaId INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (idCargo),
-  FOREIGN KEY (empresaId)
-    REFERENCES punch_the_clock.empresa (idEmpresa));
-    
-CREATE TABLE IF NOT EXISTS punch_the_clock.cargaHoraria (
-  idCargaHoraria INT(11)  AUTO_INCREMENT,
-  tipo VARCHAR(45) NOT NULL,
-  cargaHoraria VARCHAR(14) NOT NULL,
-  noturno BIT NOT NULL,
-  quantidadeMarcacoes INT(11) NULL DEFAULT NULL,
-  empresaId INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (idCargaHoraria),
-    FOREIGN KEY (empresaId)
-    REFERENCES punch_the_clock.empresa (idEmpresa));
-    
-    
-CREATE TABLE IF NOT EXISTS punch_the_clock.funcionario (
-  idFuncionario INT(11) NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(45) NOT NULL,
-  CPF VARCHAR(45) NOT NULL,
-  dataNascimento DATE NOT NULL,
-  dataContratação DATE NOT NULL,
-  dataDemissão DATE,
-  telefone VARCHAR(15) NULL DEFAULT NULL,
-  sexo VARCHAR(15) NOT NULL,
-  estadoCivil VARCHAR(45) NOT NULL,
-  email VARCHAR(45) NOT NULL,
-  senha VARCHAR(45) NOT NULL,
-  empresaId INT(11) NOT NULL,
-  cargoId INT(11) NOT NULL,
-  cargaHorariaId INT(11) NOT NULL,
-  PRIMARY KEY (idFuncionario),
-    FOREIGN KEY (cargoId)
-    REFERENCES punch_the_clock.cargo (idCargo),
-     FOREIGN KEY (cargaHorariaId)
-    REFERENCES punch_the_clock.cargaHoraria (idCargaHoraria),
-    FOREIGN KEY (empresaId)
-    REFERENCES punch_the_clock.empresa (idEmpresa));
 
-    
-CREATE TABLE IF NOT EXISTS punch_the_clock.pontos (
-  idPontos INT(11)  AUTO_INCREMENT,
-  dataMarcacao DATE NOT NULL,
-  dataRegistro DATE NOT NULL,
-  hora INT(11) NOT NULL,
-  funcionarioId INT(11) NOT NULL,
-  PRIMARY KEY (idPontos),
-    FOREIGN KEY (funcionarioId)
-    REFERENCES punch_the_clock.funcionario (idFuncionario));
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE IF NOT EXISTS punch_the_clock.bancoDeHoras (
-  idBancoDeHoras INT(11)  AUTO_INCREMENT,
-  horasTrabalhadas INT(11) NOT NULL,
-  debito INT(11) NOT NULL,
-  credito INT(11) NULL DEFAULT NULL,
-  mesReferencia  DATE NOT NULL,
-  funcionarioId INT(11) NOT NULL,
-  PRIMARY KEY (idBancoDeHoras),
-  FOREIGN KEY (funcionarioId)
-  REFERENCES punch_the_clock.funcionario (idFuncionario));
-  
+--
+-- Banco de dados: `punch_the_clock`
+--
 
-    
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `bancodehoras`
+--
+
+CREATE TABLE `bancodehoras` (
+  `idBancoDeHoras` int(11) NOT NULL,
+  `horasTrabalhadas` int(11) NOT NULL,
+  `debito` int(11) NOT NULL,
+  `credito` int(11) DEFAULT NULL,
+  `mesReferencia` date NOT NULL,
+  `funcionarioId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cargahoraria`
+--
+
+CREATE TABLE `cargahoraria` (
+  `idCargaHoraria` int(11) NOT NULL,
+  `tipo` varchar(45) NOT NULL,
+  `cargaHoraria` varchar(14) NOT NULL,
+  `noturno` bit(1) NOT NULL,
+  `quantidadeMarcacoes` int(11) DEFAULT NULL,
+  `empresaId` int(11) DEFAULT NULL,
+  `ativo` int(11) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `cargahoraria`
+--
+
+INSERT INTO `cargahoraria` (`idCargaHoraria`, `tipo`, `cargaHoraria`, `noturno`, `quantidadeMarcacoes`, `empresaId`, `ativo`) VALUES
+(1, 'DIARIA', '8 HORAS', b'0', 4, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cargo`
+--
+
+CREATE TABLE `cargo` (
+  `idCargo` int(11) NOT NULL,
+  `descricao` varchar(45) NOT NULL,
+  `empresaId` int(11) DEFAULT NULL,
+  `ativo` int(11) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `cargo`
+--
+
+INSERT INTO `cargo` (`idCargo`, `descricao`, `empresaId`, `ativo`) VALUES
+(1, 'Gerente', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `empresa`
+--
+
+CREATE TABLE `empresa` (
+  `idEmpresa` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `CNPJ` varchar(14) NOT NULL,
+  `telefone` varchar(15) DEFAULT NULL,
+  `planoId` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `empresa`
+--
+
+INSERT INTO `empresa` (`idEmpresa`, `nome`, `CNPJ`, `telefone`, `planoId`) VALUES
+(1, 'JOAO DAS COUVES', '12332112312', '1111111111', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `funcionario`
+--
+
+CREATE TABLE `funcionario` (
+  `idFuncionario` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `CPF` varchar(45) NOT NULL,
+  `dataNascimento` date NOT NULL,
+  `dataContratação` date NOT NULL,
+  `dataDemissão` date DEFAULT NULL,
+  `telefone` varchar(15) DEFAULT NULL,
+  `sexo` varchar(15) NOT NULL,
+  `estadoCivil` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  `empresaId` int(11) NOT NULL,
+  `cargoId` int(11) NOT NULL,
+  `cargaHorariaId` int(11) NOT NULL,
+  `ativo` int(11) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`idFuncionario`, `nome`, `CPF`, `dataNascimento`, `dataContratação`, `dataDemissão`, `telefone`, `sexo`, `estadoCivil`, `email`, `senha`, `empresaId`, `cargoId`, `cargaHorariaId`, `ativo`) VALUES
+(1111, 'JOAO DAS COUVES', '12312312312', '1998-04-06', '2022-06-08', NULL, NULL, 'M', 'Casado', 'joao@gmail.com', '12345678', 1, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `plano`
+--
+
+CREATE TABLE `plano` (
+  `idPlano` int(11) NOT NULL,
+  `preco` double NOT NULL,
+  `quantidadeFuncionario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `plano`
+--
+
+INSERT INTO `plano` (`idPlano`, `preco`, `quantidadeFuncionario`) VALUES
+(1, 500, 100);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pontos`
+--
+
+CREATE TABLE `pontos` (
+  `idPontos` int(11) NOT NULL,
+  `dataMarcacao` date NOT NULL,
+  `dataRegistro` date NOT NULL,
+  `hora` int(11) NOT NULL,
+  `funcionarioId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `bancodehoras`
+--
+ALTER TABLE `bancodehoras`
+  ADD PRIMARY KEY (`idBancoDeHoras`),
+  ADD KEY `funcionarioId` (`funcionarioId`);
+
+--
+-- Índices para tabela `cargahoraria`
+--
+ALTER TABLE `cargahoraria`
+  ADD PRIMARY KEY (`idCargaHoraria`),
+  ADD KEY `empresaId` (`empresaId`);
+
+--
+-- Índices para tabela `cargo`
+--
+ALTER TABLE `cargo`
+  ADD PRIMARY KEY (`idCargo`),
+  ADD KEY `empresaId` (`empresaId`);
+
+--
+-- Índices para tabela `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`idEmpresa`),
+  ADD KEY `planoId` (`planoId`);
+
+--
+-- Índices para tabela `funcionario`
+--
+ALTER TABLE `funcionario`
+  ADD PRIMARY KEY (`idFuncionario`),
+  ADD KEY `cargoId` (`cargoId`),
+  ADD KEY `cargaHorariaId` (`cargaHorariaId`),
+  ADD KEY `empresaId` (`empresaId`);
+
+--
+-- Índices para tabela `plano`
+--
+ALTER TABLE `plano`
+  ADD PRIMARY KEY (`idPlano`);
+
+--
+-- Índices para tabela `pontos`
+--
+ALTER TABLE `pontos`
+  ADD PRIMARY KEY (`idPontos`),
+  ADD KEY `funcionarioId` (`funcionarioId`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `bancodehoras`
+--
+ALTER TABLE `bancodehoras`
+  MODIFY `idBancoDeHoras` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `cargahoraria`
+--
+ALTER TABLE `cargahoraria`
+  MODIFY `idCargaHoraria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `cargo`
+--
+ALTER TABLE `cargo`
+  MODIFY `idCargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `empresa`
+--
+ALTER TABLE `empresa`
+  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `funcionario`
+--
+ALTER TABLE `funcionario`
+  MODIFY `idFuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1112;
+
+--
+-- AUTO_INCREMENT de tabela `plano`
+--
+ALTER TABLE `plano`
+  MODIFY `idPlano` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `pontos`
+--
+ALTER TABLE `pontos`
+  MODIFY `idPontos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `bancodehoras`
+--
+ALTER TABLE `bancodehoras`
+  ADD CONSTRAINT `bancodehoras_ibfk_1` FOREIGN KEY (`funcionarioId`) REFERENCES `funcionario` (`idFuncionario`);
+
+--
+-- Limitadores para a tabela `cargahoraria`
+--
+ALTER TABLE `cargahoraria`
+  ADD CONSTRAINT `cargahoraria_ibfk_1` FOREIGN KEY (`empresaId`) REFERENCES `empresa` (`idEmpresa`);
+
+--
+-- Limitadores para a tabela `cargo`
+--
+ALTER TABLE `cargo`
+  ADD CONSTRAINT `cargo_ibfk_1` FOREIGN KEY (`empresaId`) REFERENCES `empresa` (`idEmpresa`);
+
+--
+-- Limitadores para a tabela `empresa`
+--
+ALTER TABLE `empresa`
+  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`planoId`) REFERENCES `plano` (`idPlano`);
+
+--
+-- Limitadores para a tabela `funcionario`
+--
+ALTER TABLE `funcionario`
+  ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`cargoId`) REFERENCES `cargo` (`idCargo`),
+  ADD CONSTRAINT `funcionario_ibfk_2` FOREIGN KEY (`cargaHorariaId`) REFERENCES `cargahoraria` (`idCargaHoraria`),
+  ADD CONSTRAINT `funcionario_ibfk_3` FOREIGN KEY (`empresaId`) REFERENCES `empresa` (`idEmpresa`);
+
+--
+-- Limitadores para a tabela `pontos`
+--
+ALTER TABLE `pontos`
+  ADD CONSTRAINT `pontos_ibfk_1` FOREIGN KEY (`funcionarioId`) REFERENCES `funcionario` (`idFuncionario`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

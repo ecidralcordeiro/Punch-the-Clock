@@ -38,12 +38,7 @@
         mysqli_query($conn,'SET character_set_client=utf8');
         mysqli_query($conn,'SET character_set_results=utf8');
 
-        $pontos = "SELECT * FROM pontos
-                    ORDER BY dataRegistro, hora";
-        $carhaHoraria = "SELECT horas FROM cargahoraria"; 
-
-        
-
+        $pontos = "SELECT dataMarcacao, hora, (SELECT cargaHoraria FROM cargaHoraria), (SELECT nome FROM funcionario LIMIT 1) FROM pontos ORDER BY dataRegistro, hora;"; 
 
         if ($result = mysqli_query($conn, $pontos)) {
             echo "<div class='tabela'>";
@@ -51,16 +46,11 @@
                 echo "<thead>";
                     echo "<tr>";
                         echo "<th scope='col'>Data</th>";
-                        echo "<th scope='col'>Entrada 1</th>";
-                        echo "<th scope='col'>Entrada 2</th>";
-                        echo "<th scope='col'>Saida 1</th>";
-                        echo "<th scope='col'>Saida 2</th>";
+                        echo "<th scope='col'>Marcação (Minutos)</th>";
+                        echo "<th scope='col'>Data</th>";
+                        echo "<th scope='col'>Marcação (Horas)</th>";
+                        echo "<th scope='col'>Nome</th>";
                         echo "<th scope='col'>Carga Horaria</th>";
-                        echo "<th scope='col'>Trabalhada</th>";
-                        echo "<th scope='col'>Crédito</th>";
-                        echo "<th scope='col'>Débito</th>";
-                        echo "<th scope='col'>editar</th>";
-                        echo "<th scope='col'>excluir</th>";
                     echo "</tr>";
                 echo "</thead>";
        
@@ -68,7 +58,7 @@
                 
                 // Apresenta cada linha da tabela
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $dataN = explode('-', $row["dataRegistro"]);
+                    $dataN = explode('-', $row["dataMarcacao"]);
                     $ano = $dataN[0];
                     $mes = $dataN[1];
                     $dia = $dataN[2];
@@ -100,9 +90,9 @@
                         echo "</td><td>";
                         echo $NovaHora;
                         echo "</td><td>";
-                        echo $row["funcionarioId"];
+                        echo $row["(SELECT nome FROM funcionario LIMIT 1)"];
                         echo "</td><td>";
-                        echo "</td><td>";
+                        echo $row["(SELECT cargaHoraria FROM cargaHoraria)"];
                         echo "</td><td>";
                         echo "</td><td>";
                         echo "</td><td>";
